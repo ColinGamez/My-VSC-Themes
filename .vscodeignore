@@ -6,4 +6,5 @@ scripts/**
 docs/**
 .gitignore
 package-lock.json
+NEXT_EXTENSION_IDEAS.md
 *.vsix

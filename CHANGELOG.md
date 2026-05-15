@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.6.0
+
+- Added Theme Reactor alpha with hybrid, time-of-day, seasonal, holiday, random favorite, and workspace theme switching.
+- Added Theme Reactor settings for schedules, favorites, mode, workspace overrides, and automatic switching.
+- Added Theme Reactor command palette actions for enable, disable, apply now, favorites, random favorites, and workspace themes.
+- Updated auto-switching docs with Theme Reactor setup examples.
+
 ## 1.5.0
 
 - Added brand banner, logo mark, and social preview image generation.

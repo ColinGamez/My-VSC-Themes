@@ -2,7 +2,7 @@
 
 ![Colin's VS Code Themes banner](assets/brand-banner.png)
 
-A colorful VS Code theme hub built around fast mood switching: orange-first classics, seasonal palettes, holiday themes, gaming-inspired looks, file icons, settings presets, and theme-switching commands. It started with **All Orange** and grew into a 32-theme pack.
+A colorful VS Code theme hub built around fast mood switching: orange-first classics, seasonal palettes, holiday themes, gaming-inspired looks, file icons, settings presets, Theme Reactor automation, and theme-switching commands. It started with **All Orange** and grew into a 32-theme pack.
 
 Marketplace: https://marketplace.visualstudio.com/items?itemName=ColinGamez.my-vsc-themes
 
@@ -73,12 +73,57 @@ The extension also includes **Colin's Color Icons**, a matching PNG-based file i
 
 To enable it, run **Preferences: File Icon Theme** and choose **Colin's Color Icons**.
 
+## Theme Reactor Alpha
+
+Theme Reactor is the first tool in **Colin's Code Suite**. It can switch themes by time of day, season, holiday month, random favorite, or workspace.
+
+Run **Colin's Themes: Enable Theme Reactor** to turn it on. The default hybrid mode uses holiday themes in January, February, October, and December, then uses a time-of-day schedule for the rest of the year.
+
+Default time schedule:
+
+| Time | Theme |
+| --- | --- |
+| Morning | Spring Bloom |
+| Day | Peach Soda |
+| Evening | Summer Sunset |
+| Night | All Orange |
+
+Useful settings:
+
+```json
+{
+  "myVscThemes.reactor.enabled": true,
+  "myVscThemes.reactor.mode": "hybrid",
+  "myVscThemes.reactor.schedule": {
+    "morning": "Spring Bloom",
+    "day": "Peach Soda",
+    "evening": "Summer Sunset",
+    "night": "All Orange"
+  },
+  "myVscThemes.reactor.favorites": [
+    "All Orange",
+    "All Orange High Contrast",
+    "Summer Sunset",
+    "Autumn Ember",
+    "Winter Aurora",
+    "Starfighter HUD"
+  ]
+}
+```
+
 ## Command Palette Helpers
 
 After installing the extension, run these from the Command Palette:
 
 | Command | What it does |
 | --- | --- |
+| **Colin's Themes: Enable Theme Reactor** | Turns on automatic Theme Reactor switching. |
+| **Colin's Themes: Disable Theme Reactor** | Turns off automatic Theme Reactor switching. |
+| **Colin's Themes: Apply Theme Reactor Now** | Applies the current Theme Reactor pick immediately. |
+| **Colin's Themes: Pick Theme Reactor Favorite** | Opens a quick picker for your configured favorites. |
+| **Colin's Themes: Random Theme Reactor Favorite** | Jumps to a random favorite theme. |
+| **Colin's Themes: Configure Theme Reactor Favorites** | Lets you choose the themes used by favorite/random commands. |
+| **Colin's Themes: Set Theme Reactor Workspace Theme** | Saves a theme override for the current workspace. |
 | **Colin's Themes: Apply Current Seasonal Theme** | Switches to Spring Bloom, Summer Sunset, Autumn Ember, or Winter Aurora based on the current month. |
 | **Colin's Themes: Apply Current Holiday Theme** | Picks Halloween, December, New Year, Valentine's, or seasonal fallback themes. |
 | **Colin's Themes: Pick Gaming Theme** | Opens a quick picker for the gaming themes. |
@@ -133,7 +178,7 @@ The manual **Release** workflow can create a GitHub release and optionally publi
 To capture fresh local VS Code screenshots:
 
 ```powershell
-.\scripts\capture-vscode-screenshots.ps1 -VsixPath .\my-vsc-themes-1.5.0.vsix
+.\scripts\capture-vscode-screenshots.ps1 -VsixPath .\my-vsc-themes-1.6.0.vsix
 ```
 
 ## Inspect Scopes

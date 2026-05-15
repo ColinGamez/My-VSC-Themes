@@ -205,10 +205,13 @@ Why this order: Theme Reactor uses the theme hub we already have, Project Comman
 
 Ship Theme Reactor as the first suite tool.
 
+Status: Alpha is landing inside Colin's VS Code Themes first so people can use the core idea before it becomes a standalone suite extension.
+
 Milestone scope:
 
-- New extension scaffold.
+- Alpha inside the current theme extension.
 - Theme schedule settings.
-- Manual commands for morning, day, evening, night, seasonal, and random favorite.
+- Manual commands for time-of-day, seasonal, holiday, favorites, random favorite, and workspace themes.
 - First-class support for Colin's VS Code Themes.
+- Standalone extension scaffold after the alpha feels right.
 - README, icon, changelog, and Marketplace polish.
