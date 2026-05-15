@@ -8,6 +8,20 @@ const packageJson = JSON.parse(await readFile(new URL("package.json", root), "ut
 const marketplaceUrl = "https://marketplace.visualstudio.com/items?itemName=ColinGamez.my-vsc-themes";
 const releaseUrl = "https://github.com/ColinGamez/My-VSC-Themes/releases/latest";
 const repoUrl = "https://github.com/ColinGamez/My-VSC-Themes";
+const packDisplay = {
+  orange: "Orange Core",
+  core: "Color Moods",
+  seasonal: "Seasonal",
+  holiday: "Holiday",
+  gaming: "Gaming"
+};
+const packDescriptions = {
+  orange: "The orange-first flagship themes and readability variants.",
+  core: "Colorful dark and light moods for everyday coding.",
+  seasonal: "Spring, summer, autumn, and winter rotations.",
+  holiday: "Event-ready palettes for October, December, New Year, Valentine's, and birthdays.",
+  gaming: "Arcade, cyber, fantasy, and cockpit-inspired coding palettes."
+};
 
 function slugify(value) {
   return value
@@ -29,9 +43,14 @@ function themeTone(theme) {
 }
 
 function themePack(label) {
+  const orange = new Set(["All Orange", "All Orange No Italics", "All Orange Soft", "All Orange High Contrast"]);
   const seasonal = new Set(["Spring Bloom", "Summer Sunset", "Autumn Ember", "Winter Aurora"]);
   const holiday = new Set(["Halloween Midnight", "Candy Cane Code", "Valentine Glow", "New Year Neon", "Birthday Confetti"]);
   const gaming = new Set(["Voxel Craft", "Cyber Runner", "Retro Console", "Starfighter HUD", "Quest Tavern"]);
+
+  if (orange.has(label)) {
+    return "orange";
+  }
 
   if (seasonal.has(label)) {
     return "seasonal";
@@ -52,6 +71,8 @@ function themeDescription(label) {
   const descriptions = {
     "All Orange": "Newton orange everywhere, tuned for late-night readability.",
     "All Orange No Italics": "The orange flagship without italic token styling.",
+    "All Orange Soft": "A gentler orange variant with warmer contrast and softer edges.",
+    "All Orange High Contrast": "The orange flagship pushed darker and brighter for extra punch.",
     "Neon Arcade": "Electric blue and hot pink on a midnight shell.",
     "Matcha Grove": "Deep green surfaces with mint and tea-gold syntax.",
     "Peach Soda": "Soft peach daylight with coral accents.",
@@ -93,21 +114,27 @@ function card(item, theme) {
   const foreground = colors["editor.foreground"] ?? "#f1f3f5";
 
   const pack = themePack(item.label);
+  const description = themeDescription(item.label);
+  const search = `${item.label} ${themeTone(theme)} ${packDisplay[pack]} ${description}`.toLowerCase();
 
-  return `<article class="theme-card" data-tone="${theme.type}" data-pack="${pack}" style="--card-accent:${accent};--card-bg:${background};--card-fg:${foreground}">
+  return `<article class="theme-card" data-tone="${theme.type}" data-pack="${pack}" data-search="${escapeHtml(search)}" style="--card-accent:${accent};--card-bg:${background};--card-fg:${foreground}">
     <a class="preview-link" href="assets/previews/${slug}.png" aria-label="Open ${escapeHtml(item.label)} preview">
       <img src="assets/previews/${slug}.png" alt="${escapeHtml(item.label)} theme preview" loading="lazy">
     </a>
     <div class="theme-card-body">
       <div>
         <h3>${escapeHtml(item.label)}</h3>
-        <p>${escapeHtml(themeDescription(item.label))}</p>
+        <p>${escapeHtml(description)}</p>
       </div>
       <div class="theme-meta">
         <span>${themeTone(theme)}</span>
-        <span>${pack}</span>
+        <span>${packDisplay[pack]}</span>
         <span>${escapeHtml(accent)}</span>
       </div>
+    </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/${slug}.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="${escapeHtml(item.label)}">Copy name</button>
     </div>
   </article>`;
 }
@@ -115,16 +142,33 @@ function card(item, theme) {
 await mkdir(docsPreviewDir, { recursive: true });
 await copyFile(new URL("assets/icon.png", root), new URL("icon.png", docsAssetsDir));
 
-const cards = [];
+const cardsByPack = new Map();
 const themes = [];
+const packOrder = ["orange", "core", "seasonal", "holiday", "gaming"];
 
 for (const item of packageJson.contributes.themes) {
   const slug = slugify(item.label);
   const theme = JSON.parse(await readFile(new URL(item.path.replace("./", ""), root), "utf8"));
   await copyFile(new URL(`assets/previews/${slug}.png`, root), new URL(`${slug}.png`, docsPreviewDir));
-  cards.push(card(item, theme));
+  const pack = themePack(item.label);
+  const packCards = cardsByPack.get(pack) ?? [];
+  packCards.push(card(item, theme));
+  cardsByPack.set(pack, packCards);
   themes.push({ label: item.label, tone: theme.type });
 }
+
+const themeSections = packOrder
+  .filter((pack) => cardsByPack.has(pack))
+  .map((pack) => `<section class="pack-section" data-pack-section="${pack}">
+        <div class="pack-heading">
+          <h2>${packDisplay[pack]}</h2>
+          <p>${packDescriptions[pack]}</p>
+        </div>
+        <div class="theme-grid" aria-label="${packDisplay[pack]} themes">
+          ${cardsByPack.get(pack).join("\n          ")}
+        </div>
+      </section>`)
+  .join("\n\n      ");
 
 const html = `<!doctype html>
 <html lang="en">
@@ -144,6 +188,7 @@ const html = `<!doctype html>
       </a>
       <nav aria-label="Primary">
         <a href="#themes">Themes</a>
+        <a href="#commands">Commands</a>
         <a href="#install">Install</a>
         <a href="#auto-switch">Auto Switch</a>
         <a href="${repoUrl}">GitHub</a>
@@ -171,13 +216,35 @@ const html = `<!doctype html>
         <button type="button" class="filter active" data-filter="all">All</button>
         <button type="button" class="filter" data-filter="dark">Dark</button>
         <button type="button" class="filter" data-filter="light">Light</button>
+        <button type="button" class="filter" data-filter="orange">Orange</button>
+        <button type="button" class="filter" data-filter="core">Color</button>
         <button type="button" class="filter" data-filter="seasonal">Seasonal</button>
         <button type="button" class="filter" data-filter="holiday">Holiday</button>
         <button type="button" class="filter" data-filter="gaming">Gaming</button>
       </section>
 
-      <section id="themes" class="theme-grid" aria-label="Theme gallery">
-        ${cards.join("\n        ")}
+      <section class="control-panel" aria-label="Theme search">
+        <label class="search-box">
+          <span>Search themes</span>
+          <input id="theme-search" type="search" placeholder="orange, winter, gaming, light..." autocomplete="off">
+        </label>
+        <span id="theme-count">${themes.length} themes</span>
+      </section>
+
+      <section id="themes" class="theme-gallery" aria-label="Theme gallery">
+        ${themeSections}
+      </section>
+
+      <section id="commands" class="install">
+        <h2>Command Palette helpers</h2>
+        <p>Run these from <strong>Command Palette</strong> after installing the extension.</p>
+        <ul class="command-list">
+          <li><code>Colin's Themes: Apply Current Seasonal Theme</code></li>
+          <li><code>Colin's Themes: Apply Current Holiday Theme</code></li>
+          <li><code>Colin's Themes: Pick Gaming Theme</code></li>
+          <li><code>Colin's Themes: Pick Theme By Pack</code></li>
+          <li><code>Colin's Themes: Enable Light/Dark Auto Switch</code></li>
+        </ul>
       </section>
 
       <section id="install" class="install">
@@ -418,11 +485,76 @@ main {
   color: #180602;
 }
 
+.control-panel {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 2rem;
+  padding: 1rem;
+  border: 1px solid rgba(250, 130, 76, 0.24);
+  border-radius: 14px;
+  background: rgba(22, 8, 4, 0.64);
+}
+
+.search-box {
+  display: grid;
+  gap: 0.45rem;
+  width: min(100%, 34rem);
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.search-box input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid rgba(255, 191, 105, 0.26);
+  border-radius: 8px;
+  padding: 0 0.95rem;
+  background: rgba(8, 5, 4, 0.78);
+  color: var(--text);
+  font: inherit;
+}
+
+#theme-count {
+  color: var(--muted);
+  font-family: "Cascadia Code", Consolas, monospace;
+}
+
+.theme-gallery {
+  padding-bottom: 2rem;
+}
+
+.pack-section {
+  scroll-margin-top: 6rem;
+  margin: 0 0 3rem;
+}
+
+.pack-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+  margin: 0 0 1rem;
+}
+
+.pack-heading h2 {
+  margin: 0;
+  color: #fff4df;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.pack-heading p {
+  max-width: 32rem;
+  margin: 0;
+  color: var(--gold);
+  line-height: 1.5;
+}
+
 .theme-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: 1rem;
-  padding-bottom: 4rem;
 }
 
 .theme-card {
@@ -473,6 +605,26 @@ main {
   white-space: nowrap;
 }
 
+.theme-card-actions {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0 1rem 1rem;
+}
+
+.mini-action {
+  min-height: 34px;
+  border: 1px solid color-mix(in srgb, var(--card-accent), transparent 55%);
+  border-radius: 8px;
+  padding: 0.45rem 0.7rem;
+  background: color-mix(in srgb, var(--card-bg), #ffffff 5%);
+  color: var(--card-accent);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .install {
   margin: 0 0 4rem;
   padding: clamp(1.5rem, 4vw, 3rem);
@@ -490,6 +642,10 @@ main {
   margin: 0.55rem 0;
   color: var(--gold);
   line-height: 1.55;
+}
+
+.command-list {
+  padding-left: 1.25rem;
 }
 
 code {
@@ -544,6 +700,12 @@ footer {
   .theme-grid {
     grid-template-columns: 1fr;
   }
+
+  .control-panel,
+  .pack-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 560px) {
@@ -578,20 +740,57 @@ footer {
 
 const js = `const filters = document.querySelectorAll(".filter");
 const cards = document.querySelectorAll(".theme-card");
+const sections = document.querySelectorAll(".pack-section");
+const search = document.querySelector("#theme-search");
+const count = document.querySelector("#theme-count");
+const copyButtons = document.querySelectorAll(".copy-theme");
+let activeFilter = "all";
+
+function applyFilters() {
+  const query = search.value.trim().toLowerCase();
+  let visibleCount = 0;
+
+  for (const card of cards) {
+    const isTone = activeFilter === "dark" || activeFilter === "light";
+    const matchesFilter = activeFilter === "all" || (isTone ? card.dataset.tone === activeFilter : card.dataset.pack === activeFilter);
+    const matchesSearch = query.length === 0 || card.dataset.search.includes(query);
+    const isVisible = matchesFilter && matchesSearch;
+    card.classList.toggle("is-hidden", !isVisible);
+
+    if (isVisible) {
+      visibleCount += 1;
+    }
+  }
+
+  for (const section of sections) {
+    const hasVisibleCard = [...section.querySelectorAll(".theme-card")].some((card) => !card.classList.contains("is-hidden"));
+    section.classList.toggle("is-hidden", !hasVisibleCard);
+  }
+
+  count.textContent = visibleCount === 1 ? "1 theme" : \`\${visibleCount} themes\`;
+}
 
 for (const filter of filters) {
   filter.addEventListener("click", () => {
-    const value = filter.dataset.filter;
+    activeFilter = filter.dataset.filter;
 
     for (const item of filters) {
       item.classList.toggle("active", item === filter);
     }
 
-    for (const card of cards) {
-      const isTone = value === "dark" || value === "light";
-      const isVisible = value === "all" || (isTone ? card.dataset.tone === value : card.dataset.pack === value);
-      card.classList.toggle("is-hidden", !isVisible);
-    }
+    applyFilters();
+  });
+}
+
+search.addEventListener("input", applyFilters);
+
+for (const button of copyButtons) {
+  button.addEventListener("click", async () => {
+    await navigator.clipboard.writeText(button.dataset.theme);
+    button.textContent = "Copied";
+    setTimeout(() => {
+      button.textContent = "Copy name";
+    }, 1200);
   });
 }
 `;

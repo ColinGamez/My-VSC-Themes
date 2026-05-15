@@ -1,10 +1,24 @@
 {
   "name": "my-vsc-themes",
   "displayName": "Colin's VS Code Themes",
-  "description": "A colorful VS Code theme hub with orange, seasonal, holiday, and gaming-inspired palettes.",
-  "version": "1.3.0",
+  "description": "A colorful VS Code theme hub with themes, file icons, variants, and theme-switching commands.",
+  "version": "1.4.0",
   "publisher": "ColinGamez",
   "license": "MIT",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:my-vsc-themes.applySeasonalTheme",
+    "onCommand:my-vsc-themes.applyHolidayTheme",
+    "onCommand:my-vsc-themes.pickGamingTheme",
+    "onCommand:my-vsc-themes.pickThemeByPack",
+    "onCommand:my-vsc-themes.enableLightDarkAutoSwitch",
+    "onCommand:my-vsc-themes.enableMonthlyAutoTheme",
+    "onCommand:my-vsc-themes.disableMonthlyAutoTheme"
+  ],
+  "extensionKind": [
+    "ui"
+  ],
   "icon": "assets/icon.png",
   "galleryBanner": {
     "color": "#180602",
@@ -20,10 +34,12 @@
     "url": "https://github.com/ColinGamez/My-VSC-Themes/issues"
   },
   "scripts": {
-    "build": "npm run build:icon && npm run build:no-italics && npm run build:extras && npm run build:previews && npm run build:sampler",
+    "build": "npm run build:icon && npm run build:no-italics && npm run build:variants && npm run build:extras && npm run build:file-icons && npm run build:previews && npm run build:sampler",
     "build:icon": "node scripts/build-icon.mjs",
     "build:no-italics": "node scripts/build-no-italics.mjs",
+    "build:variants": "node scripts/build-variants.mjs",
     "build:extras": "node scripts/build-extra-themes.mjs",
+    "build:file-icons": "node scripts/build-file-icons.mjs",
     "build:previews": "node scripts/build-previews.mjs",
     "build:sampler": "node scripts/build-sampler.mjs",
     "check:themes": "node scripts/check-theme-quality.mjs"
@@ -46,9 +62,75 @@
     "gaming themes",
     "halloween",
     "retro",
-    "cyberpunk"
+    "cyberpunk",
+    "file icons",
+    "auto theme",
+    "theme switcher"
   ],
   "contributes": {
+    "commands": [
+      {
+        "command": "my-vsc-themes.applySeasonalTheme",
+        "title": "Apply Current Seasonal Theme",
+        "category": "Colin's Themes"
+      },
+      {
+        "command": "my-vsc-themes.applyHolidayTheme",
+        "title": "Apply Current Holiday Theme",
+        "category": "Colin's Themes"
+      },
+      {
+        "command": "my-vsc-themes.pickGamingTheme",
+        "title": "Pick Gaming Theme",
+        "category": "Colin's Themes"
+      },
+      {
+        "command": "my-vsc-themes.pickThemeByPack",
+        "title": "Pick Theme By Pack",
+        "category": "Colin's Themes"
+      },
+      {
+        "command": "my-vsc-themes.enableLightDarkAutoSwitch",
+        "title": "Enable Light/Dark Auto Switch",
+        "category": "Colin's Themes"
+      },
+      {
+        "command": "my-vsc-themes.enableMonthlyAutoTheme",
+        "title": "Enable Startup Seasonal Auto Theme",
+        "category": "Colin's Themes"
+      },
+      {
+        "command": "my-vsc-themes.disableMonthlyAutoTheme",
+        "title": "Disable Startup Seasonal Auto Theme",
+        "category": "Colin's Themes"
+      }
+    ],
+    "configuration": {
+      "title": "Colin's VS Code Themes",
+      "properties": {
+        "myVscThemes.autoApplyOnStartup": {
+          "type": "boolean",
+          "default": false,
+          "description": "Apply a Colin's Themes seasonal or holiday theme when VS Code starts."
+        },
+        "myVscThemes.autoMode": {
+          "type": "string",
+          "enum": [
+            "seasonal",
+            "holiday"
+          ],
+          "default": "seasonal",
+          "description": "Controls which automatic theme rotation is used on startup."
+        }
+      }
+    },
+    "iconThemes": [
+      {
+        "id": "colins-color-icons",
+        "label": "Colin's Color Icons",
+        "path": "./fileicons/colins-color-icons-icon-theme.json"
+      }
+    ],
     "themes": [
       {
         "label": "All Orange",
@@ -59,6 +141,16 @@
         "label": "All Orange No Italics",
         "uiTheme": "vs-dark",
         "path": "./themes/all-orange-no-italics-color-theme.json"
+      },
+      {
+        "label": "All Orange Soft",
+        "uiTheme": "vs-dark",
+        "path": "./themes/all-orange-soft-color-theme.json"
+      },
+      {
+        "label": "All Orange High Contrast",
+        "uiTheme": "vs-dark",
+        "path": "./themes/all-orange-high-contrast-color-theme.json"
       },
       {
         "label": "Neon Arcade",

@@ -1,0 +1,113 @@
+{
+  "iconDefinitions": {
+    "_file": {
+      "iconPath": "./images/file.png"
+    },
+    "_folder": {
+      "iconPath": "./images/folder.png"
+    },
+    "_folderOpen": {
+      "iconPath": "./images/folderOpen.png"
+    },
+    "_js": {
+      "iconPath": "./images/js.png"
+    },
+    "_ts": {
+      "iconPath": "./images/ts.png"
+    },
+    "_json": {
+      "iconPath": "./images/json.png"
+    },
+    "_html": {
+      "iconPath": "./images/html.png"
+    },
+    "_css": {
+      "iconPath": "./images/css.png"
+    },
+    "_vue": {
+      "iconPath": "./images/vue.png"
+    },
+    "_py": {
+      "iconPath": "./images/py.png"
+    },
+    "_rb": {
+      "iconPath": "./images/rb.png"
+    },
+    "_md": {
+      "iconPath": "./images/md.png"
+    },
+    "_image": {
+      "iconPath": "./images/image.png"
+    },
+    "_lock": {
+      "iconPath": "./images/lock.png"
+    },
+    "_npm": {
+      "iconPath": "./images/npm.png"
+    },
+    "_git": {
+      "iconPath": "./images/git.png"
+    },
+    "_config": {
+      "iconPath": "./images/config.png"
+    }
+  },
+  "file": "_file",
+  "folder": "_folder",
+  "folderExpanded": "_folderOpen",
+  "rootFolder": "_folder",
+  "rootFolderExpanded": "_folderOpen",
+  "folderNames": {
+    ".git": "_git",
+    ".github": "_git",
+    ".vscode": "_config",
+    "node_modules": "_npm",
+    "assets": "_image",
+    "docs": "_md",
+    "themes": "_folder",
+    "scripts": "_config"
+  },
+  "fileExtensions": {
+    "js": "_js",
+    "jsx": "_js",
+    "mjs": "_js",
+    "cjs": "_js",
+    "ts": "_ts",
+    "tsx": "_ts",
+    "json": "_json",
+    "html": "_html",
+    "css": "_css",
+    "vue": "_vue",
+    "py": "_py",
+    "rb": "_rb",
+    "md": "_md",
+    "png": "_image",
+    "jpg": "_image",
+    "jpeg": "_image",
+    "gif": "_image",
+    "webp": "_image",
+    "lock": "_lock",
+    "yml": "_config",
+    "yaml": "_config"
+  },
+  "fileNames": {
+    "package.json": "_npm",
+    "package-lock.json": "_lock",
+    ".gitignore": "_git",
+    ".vscodeignore": "_config",
+    "README.md": "_md",
+    "CHANGELOG.md": "_md",
+    "SUPPORT.md": "_md"
+  },
+  "languageIds": {
+    "javascript": "_js",
+    "typescript": "_ts",
+    "json": "_json",
+    "html": "_html",
+    "css": "_css",
+    "vue": "_vue",
+    "python": "_py",
+    "ruby": "_rb",
+    "markdown": "_md"
+  }
+}

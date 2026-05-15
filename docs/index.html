@@ -16,6 +16,7 @@
       </a>
       <nav aria-label="Primary">
         <a href="#themes">Themes</a>
+        <a href="#commands">Commands</a>
         <a href="#install">Install</a>
         <a href="#auto-switch">Auto Switch</a>
         <a href="https://github.com/ColinGamez/My-VSC-Themes">GitHub</a>
@@ -26,7 +27,7 @@
       <section class="hero">
         <div class="hero-copy">
           <h1>Colorful VS Code themes for switching coding moods fast.</h1>
-          <p>30 themes across orange classics, seasonal palettes, holiday looks, and gaming-inspired code moods.</p>
+          <p>32 themes across orange classics, seasonal palettes, holiday looks, and gaming-inspired code moods.</p>
           <div class="hero-actions">
             <a class="button primary" href="https://marketplace.visualstudio.com/items?itemName=ColinGamez.my-vsc-themes">Install from Marketplace</a>
             <a class="button secondary" href="#themes">Browse themes</a>
@@ -43,13 +44,29 @@
         <button type="button" class="filter active" data-filter="all">All</button>
         <button type="button" class="filter" data-filter="dark">Dark</button>
         <button type="button" class="filter" data-filter="light">Light</button>
+        <button type="button" class="filter" data-filter="orange">Orange</button>
+        <button type="button" class="filter" data-filter="core">Color</button>
         <button type="button" class="filter" data-filter="seasonal">Seasonal</button>
         <button type="button" class="filter" data-filter="holiday">Holiday</button>
         <button type="button" class="filter" data-filter="gaming">Gaming</button>
       </section>
 
-      <section id="themes" class="theme-grid" aria-label="Theme gallery">
-        <article class="theme-card" data-tone="dark" data-pack="core" style="--card-accent:#fa824c;--card-bg:#180602;--card-fg:#ffbf69">
+      <section class="control-panel" aria-label="Theme search">
+        <label class="search-box">
+          <span>Search themes</span>
+          <input id="theme-search" type="search" placeholder="orange, winter, gaming, light..." autocomplete="off">
+        </label>
+        <span id="theme-count">32 themes</span>
+      </section>
+
+      <section id="themes" class="theme-gallery" aria-label="Theme gallery">
+        <section class="pack-section" data-pack-section="orange">
+        <div class="pack-heading">
+          <h2>Orange Core</h2>
+          <p>The orange-first flagship themes and readability variants.</p>
+        </div>
+        <div class="theme-grid" aria-label="Orange Core themes">
+          <article class="theme-card" data-tone="dark" data-pack="orange" data-search="all orange dark orange core newton orange everywhere, tuned for late-night readability." style="--card-accent:#fa824c;--card-bg:#180602;--card-fg:#ffbf69">
     <a class="preview-link" href="assets/previews/all-orange.png" aria-label="Open All Orange preview">
       <img src="assets/previews/all-orange.png" alt="All Orange theme preview" loading="lazy">
     </a>
@@ -60,12 +77,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>core</span>
+        <span>Orange Core</span>
         <span>#fa824c</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/all-orange.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="All Orange">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="core" style="--card-accent:#fa824c;--card-bg:#180602;--card-fg:#ffbf69">
+          <article class="theme-card" data-tone="dark" data-pack="orange" data-search="all orange no italics dark orange core the orange flagship without italic token styling." style="--card-accent:#fa824c;--card-bg:#180602;--card-fg:#ffbf69">
     <a class="preview-link" href="assets/previews/all-orange-no-italics.png" aria-label="Open All Orange No Italics preview">
       <img src="assets/previews/all-orange-no-italics.png" alt="All Orange No Italics theme preview" loading="lazy">
     </a>
@@ -76,12 +97,65 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>core</span>
+        <span>Orange Core</span>
         <span>#fa824c</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/all-orange-no-italics.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="All Orange No Italics">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="core" style="--card-accent:#00d7ff;--card-bg:#07091f;--card-fg:#e8edff">
+          <article class="theme-card" data-tone="dark" data-pack="orange" data-search="all orange soft dark orange core a gentler orange variant with warmer contrast and softer edges." style="--card-accent:#ff9f68;--card-bg:#1a0d08;--card-fg:#ffd59a">
+    <a class="preview-link" href="assets/previews/all-orange-soft.png" aria-label="Open All Orange Soft preview">
+      <img src="assets/previews/all-orange-soft.png" alt="All Orange Soft theme preview" loading="lazy">
+    </a>
+    <div class="theme-card-body">
+      <div>
+        <h3>All Orange Soft</h3>
+        <p>A gentler orange variant with warmer contrast and softer edges.</p>
+      </div>
+      <div class="theme-meta">
+        <span>Dark</span>
+        <span>Orange Core</span>
+        <span>#ff9f68</span>
+      </div>
+    </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/all-orange-soft.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="All Orange Soft">Copy name</button>
+    </div>
+  </article>
+          <article class="theme-card" data-tone="dark" data-pack="orange" data-search="all orange high contrast dark orange core the orange flagship pushed darker and brighter for extra punch." style="--card-accent:#ff8a3d;--card-bg:#080201;--card-fg:#fff8e8">
+    <a class="preview-link" href="assets/previews/all-orange-high-contrast.png" aria-label="Open All Orange High Contrast preview">
+      <img src="assets/previews/all-orange-high-contrast.png" alt="All Orange High Contrast theme preview" loading="lazy">
+    </a>
+    <div class="theme-card-body">
+      <div>
+        <h3>All Orange High Contrast</h3>
+        <p>The orange flagship pushed darker and brighter for extra punch.</p>
+      </div>
+      <div class="theme-meta">
+        <span>Dark</span>
+        <span>Orange Core</span>
+        <span>#ff8a3d</span>
+      </div>
+    </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/all-orange-high-contrast.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="All Orange High Contrast">Copy name</button>
+    </div>
+  </article>
+        </div>
+      </section>
+
+      <section class="pack-section" data-pack-section="core">
+        <div class="pack-heading">
+          <h2>Color Moods</h2>
+          <p>Colorful dark and light moods for everyday coding.</p>
+        </div>
+        <div class="theme-grid" aria-label="Color Moods themes">
+          <article class="theme-card" data-tone="dark" data-pack="core" data-search="neon arcade dark color moods electric blue and hot pink on a midnight shell." style="--card-accent:#00d7ff;--card-bg:#07091f;--card-fg:#e8edff">
     <a class="preview-link" href="assets/previews/neon-arcade.png" aria-label="Open Neon Arcade preview">
       <img src="assets/previews/neon-arcade.png" alt="Neon Arcade theme preview" loading="lazy">
     </a>
@@ -92,12 +166,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>core</span>
+        <span>Color Moods</span>
         <span>#00d7ff</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/neon-arcade.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Neon Arcade">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="core" style="--card-accent:#a8d45b;--card-bg:#07130d;--card-fg:#d9f5c9">
+          <article class="theme-card" data-tone="dark" data-pack="core" data-search="matcha grove dark color moods deep green surfaces with mint and tea-gold syntax." style="--card-accent:#a8d45b;--card-bg:#07130d;--card-fg:#d9f5c9">
     <a class="preview-link" href="assets/previews/matcha-grove.png" aria-label="Open Matcha Grove preview">
       <img src="assets/previews/matcha-grove.png" alt="Matcha Grove theme preview" loading="lazy">
     </a>
@@ -108,12 +186,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>core</span>
+        <span>Color Moods</span>
         <span>#a8d45b</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/matcha-grove.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Matcha Grove">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="light" data-pack="core" style="--card-accent:#c94f45;--card-bg:#fff7ef;--card-fg:#4b2f25">
+          <article class="theme-card" data-tone="light" data-pack="core" data-search="peach soda light color moods soft peach daylight with coral accents." style="--card-accent:#c94f45;--card-bg:#fff7ef;--card-fg:#4b2f25">
     <a class="preview-link" href="assets/previews/peach-soda.png" aria-label="Open Peach Soda preview">
       <img src="assets/previews/peach-soda.png" alt="Peach Soda theme preview" loading="lazy">
     </a>
@@ -124,12 +206,16 @@
       </div>
       <div class="theme-meta">
         <span>Light</span>
-        <span>core</span>
+        <span>Color Moods</span>
         <span>#c94f45</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/peach-soda.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Peach Soda">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="core" style="--card-accent:#00b7ff;--card-bg:#06111f;--card-fg:#dff6ff">
+          <article class="theme-card" data-tone="dark" data-pack="core" data-search="blue raspberry dark color moods cold blue surfaces with raspberry-bright syntax." style="--card-accent:#00b7ff;--card-bg:#06111f;--card-fg:#dff6ff">
     <a class="preview-link" href="assets/previews/blue-raspberry.png" aria-label="Open Blue Raspberry preview">
       <img src="assets/previews/blue-raspberry.png" alt="Blue Raspberry theme preview" loading="lazy">
     </a>
@@ -140,12 +226,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>core</span>
+        <span>Color Moods</span>
         <span>#00b7ff</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/blue-raspberry.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Blue Raspberry">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="core" style="--card-accent:#ff4e5f;--card-bg:#140607;--card-fg:#ffe2d0">
+          <article class="theme-card" data-tone="dark" data-pack="core" data-search="cherry cola dark color moods dark cola surfaces with cherry highlights." style="--card-accent:#ff4e5f;--card-bg:#140607;--card-fg:#ffe2d0">
     <a class="preview-link" href="assets/previews/cherry-cola.png" aria-label="Open Cherry Cola preview">
       <img src="assets/previews/cherry-cola.png" alt="Cherry Cola theme preview" loading="lazy">
     </a>
@@ -156,12 +246,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>core</span>
+        <span>Color Moods</span>
         <span>#ff4e5f</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/cherry-cola.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Cherry Cola">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="core" style="--card-accent:#b891ff;--card-bg:#0d0a1f;--card-fg:#ede7ff">
+          <article class="theme-card" data-tone="dark" data-pack="core" data-search="lavender static dark color moods violet chrome with cyan signal colors." style="--card-accent:#b891ff;--card-bg:#0d0a1f;--card-fg:#ede7ff">
     <a class="preview-link" href="assets/previews/lavender-static.png" aria-label="Open Lavender Static preview">
       <img src="assets/previews/lavender-static.png" alt="Lavender Static theme preview" loading="lazy">
     </a>
@@ -172,12 +266,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>core</span>
+        <span>Color Moods</span>
         <span>#b891ff</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/lavender-static.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Lavender Static">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="core" style="--card-accent:#35d0ba;--card-bg:#041417;--card-fg:#d3fbff">
+          <article class="theme-card" data-tone="dark" data-pack="core" data-search="ocean byte dark color moods teal-black surfaces with seafoam highlights." style="--card-accent:#35d0ba;--card-bg:#041417;--card-fg:#d3fbff">
     <a class="preview-link" href="assets/previews/ocean-byte.png" aria-label="Open Ocean Byte preview">
       <img src="assets/previews/ocean-byte.png" alt="Ocean Byte theme preview" loading="lazy">
     </a>
@@ -188,12 +286,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>core</span>
+        <span>Color Moods</span>
         <span>#35d0ba</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/ocean-byte.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Ocean Byte">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="core" style="--card-accent:#7dd3fc;--card-bg:#101114;--card-fg:#f1f3f5">
+          <article class="theme-card" data-tone="dark" data-pack="core" data-search="graphite pop dark color moods neutral graphite with bright coding accents." style="--card-accent:#7dd3fc;--card-bg:#101114;--card-fg:#f1f3f5">
     <a class="preview-link" href="assets/previews/graphite-pop.png" aria-label="Open Graphite Pop preview">
       <img src="assets/previews/graphite-pop.png" alt="Graphite Pop theme preview" loading="lazy">
     </a>
@@ -204,12 +306,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>core</span>
+        <span>Color Moods</span>
         <span>#7dd3fc</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/graphite-pop.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Graphite Pop">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="light" data-pack="core" style="--card-accent:#c47f00;--card-bg:#fff9e6;--card-fg:#49340d">
+          <article class="theme-card" data-tone="light" data-pack="core" data-search="honey terminal light color moods warm honey-gold light mode for daytime coding." style="--card-accent:#c47f00;--card-bg:#fff9e6;--card-fg:#49340d">
     <a class="preview-link" href="assets/previews/honey-terminal.png" aria-label="Open Honey Terminal preview">
       <img src="assets/previews/honey-terminal.png" alt="Honey Terminal theme preview" loading="lazy">
     </a>
@@ -220,12 +326,16 @@
       </div>
       <div class="theme-meta">
         <span>Light</span>
-        <span>core</span>
+        <span>Color Moods</span>
         <span>#c47f00</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/honey-terminal.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Honey Terminal">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="core" style="--card-accent:#ff8a1f;--card-bg:#100804;--card-fg:#ffd7a1">
+          <article class="theme-card" data-tone="dark" data-pack="core" data-search="pumpkin hacker dark color moods spiced terminal orange with green hacker glow." style="--card-accent:#ff8a1f;--card-bg:#100804;--card-fg:#ffd7a1">
     <a class="preview-link" href="assets/previews/pumpkin-hacker.png" aria-label="Open Pumpkin Hacker preview">
       <img src="assets/previews/pumpkin-hacker.png" alt="Pumpkin Hacker theme preview" loading="lazy">
     </a>
@@ -236,12 +346,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>core</span>
+        <span>Color Moods</span>
         <span>#ff8a1f</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/pumpkin-hacker.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Pumpkin Hacker">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="core" style="--card-accent:#bd5bff;--card-bg:#10041c;--card-fg:#f4e8ff">
+          <article class="theme-card" data-tone="dark" data-pack="core" data-search="cyber grape dark color moods purple cyberpunk surfaces with lime sparks." style="--card-accent:#bd5bff;--card-bg:#10041c;--card-fg:#f4e8ff">
     <a class="preview-link" href="assets/previews/cyber-grape.png" aria-label="Open Cyber Grape preview">
       <img src="assets/previews/cyber-grape.png" alt="Cyber Grape theme preview" loading="lazy">
     </a>
@@ -252,12 +366,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>core</span>
+        <span>Color Moods</span>
         <span>#bd5bff</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/cyber-grape.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Cyber Grape">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="core" style="--card-accent:#ff9de2;--card-bg:#0d1024;--card-fg:#f7eaff">
+          <article class="theme-card" data-tone="dark" data-pack="core" data-search="cotton candy terminal dark color moods soft dark candy tones with pink and baby-blue syntax." style="--card-accent:#ff9de2;--card-bg:#0d1024;--card-fg:#f7eaff">
     <a class="preview-link" href="assets/previews/cotton-candy-terminal.png" aria-label="Open Cotton Candy Terminal preview">
       <img src="assets/previews/cotton-candy-terminal.png" alt="Cotton Candy Terminal theme preview" loading="lazy">
     </a>
@@ -268,12 +386,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>core</span>
+        <span>Color Moods</span>
         <span>#ff9de2</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/cotton-candy-terminal.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Cotton Candy Terminal">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="core" style="--card-accent:#2f8cff;--card-bg:#08111f;--card-fg:#e4f0ff">
+          <article class="theme-card" data-tone="dark" data-pack="core" data-search="xp dark dark color moods a nostalgic blue-gray dark theme with classic green accents." style="--card-accent:#2f8cff;--card-bg:#08111f;--card-fg:#e4f0ff">
     <a class="preview-link" href="assets/previews/xp-dark.png" aria-label="Open XP Dark preview">
       <img src="assets/previews/xp-dark.png" alt="XP Dark theme preview" loading="lazy">
     </a>
@@ -284,12 +406,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>core</span>
+        <span>Color Moods</span>
         <span>#2f8cff</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/xp-dark.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="XP Dark">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="core" style="--card-accent:#ffb000;--card-bg:#120705;--card-fg:#fff0c2">
+          <article class="theme-card" data-tone="dark" data-pack="core" data-search="solar flare dark color moods high-energy solar golds and reds on dark ember ui." style="--card-accent:#ffb000;--card-bg:#120705;--card-fg:#fff0c2">
     <a class="preview-link" href="assets/previews/solar-flare.png" aria-label="Open Solar Flare preview">
       <img src="assets/previews/solar-flare.png" alt="Solar Flare theme preview" loading="lazy">
     </a>
@@ -300,12 +426,25 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>core</span>
+        <span>Color Moods</span>
         <span>#ffb000</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/solar-flare.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Solar Flare">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="light" data-pack="seasonal" style="--card-accent:#3f8f32;--card-bg:#fbfff4;--card-fg:#24351c">
+        </div>
+      </section>
+
+      <section class="pack-section" data-pack-section="seasonal">
+        <div class="pack-heading">
+          <h2>Seasonal</h2>
+          <p>Spring, summer, autumn, and winter rotations.</p>
+        </div>
+        <div class="theme-grid" aria-label="Seasonal themes">
+          <article class="theme-card" data-tone="light" data-pack="seasonal" data-search="spring bloom light seasonal fresh light mode with green growth and pink accents." style="--card-accent:#3f8f32;--card-bg:#fbfff4;--card-fg:#24351c">
     <a class="preview-link" href="assets/previews/spring-bloom.png" aria-label="Open Spring Bloom preview">
       <img src="assets/previews/spring-bloom.png" alt="Spring Bloom theme preview" loading="lazy">
     </a>
@@ -316,12 +455,16 @@
       </div>
       <div class="theme-meta">
         <span>Light</span>
-        <span>seasonal</span>
+        <span>Seasonal</span>
         <span>#3f8f32</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/spring-bloom.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Spring Bloom">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="seasonal" style="--card-accent:#ff9f1c;--card-bg:#170b12;--card-fg:#ffe7b8">
+          <article class="theme-card" data-tone="dark" data-pack="seasonal" data-search="summer sunset dark seasonal warm sunset chrome with coral heat and cool blue functions." style="--card-accent:#ff9f1c;--card-bg:#170b12;--card-fg:#ffe7b8">
     <a class="preview-link" href="assets/previews/summer-sunset.png" aria-label="Open Summer Sunset preview">
       <img src="assets/previews/summer-sunset.png" alt="Summer Sunset theme preview" loading="lazy">
     </a>
@@ -332,12 +475,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>seasonal</span>
+        <span>Seasonal</span>
         <span>#ff9f1c</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/summer-sunset.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Summer Sunset">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="seasonal" style="--card-accent:#d97706;--card-bg:#120a04;--card-fg:#f5d6a3">
+          <article class="theme-card" data-tone="dark" data-pack="seasonal" data-search="autumn ember dark seasonal dark harvest tones with ember orange and mellow gold syntax." style="--card-accent:#d97706;--card-bg:#120a04;--card-fg:#f5d6a3">
     <a class="preview-link" href="assets/previews/autumn-ember.png" aria-label="Open Autumn Ember preview">
       <img src="assets/previews/autumn-ember.png" alt="Autumn Ember theme preview" loading="lazy">
     </a>
@@ -348,12 +495,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>seasonal</span>
+        <span>Seasonal</span>
         <span>#d97706</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/autumn-ember.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Autumn Ember">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="seasonal" style="--card-accent:#7dd3fc;--card-bg:#06111f;--card-fg:#e8fbff">
+          <article class="theme-card" data-tone="dark" data-pack="seasonal" data-search="winter aurora dark seasonal icy blue surfaces with aurora violet and mint highlights." style="--card-accent:#7dd3fc;--card-bg:#06111f;--card-fg:#e8fbff">
     <a class="preview-link" href="assets/previews/winter-aurora.png" aria-label="Open Winter Aurora preview">
       <img src="assets/previews/winter-aurora.png" alt="Winter Aurora theme preview" loading="lazy">
     </a>
@@ -364,12 +515,25 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>seasonal</span>
+        <span>Seasonal</span>
         <span>#7dd3fc</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/winter-aurora.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Winter Aurora">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="holiday" style="--card-accent:#ff8a00;--card-bg:#0f0715;--card-fg:#f4e6ff">
+        </div>
+      </section>
+
+      <section class="pack-section" data-pack-section="holiday">
+        <div class="pack-heading">
+          <h2>Holiday</h2>
+          <p>Event-ready palettes for October, December, New Year, Valentine's, and birthdays.</p>
+        </div>
+        <div class="theme-grid" aria-label="Holiday themes">
+          <article class="theme-card" data-tone="dark" data-pack="holiday" data-search="halloween midnight dark holiday purple midnight surfaces with orange syntax and sharp green highlights." style="--card-accent:#ff8a00;--card-bg:#0f0715;--card-fg:#f4e6ff">
     <a class="preview-link" href="assets/previews/halloween-midnight.png" aria-label="Open Halloween Midnight preview">
       <img src="assets/previews/halloween-midnight.png" alt="Halloween Midnight theme preview" loading="lazy">
     </a>
@@ -380,12 +544,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>holiday</span>
+        <span>Holiday</span>
         <span>#ff8a00</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/halloween-midnight.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Halloween Midnight">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="light" data-pack="holiday" style="--card-accent:#d62828;--card-bg:#fffafa;--card-fg:#351819">
+          <article class="theme-card" data-tone="light" data-pack="holiday" data-search="candy cane code light holiday crisp light mode with red, green, and gold holiday syntax." style="--card-accent:#d62828;--card-bg:#fffafa;--card-fg:#351819">
     <a class="preview-link" href="assets/previews/candy-cane-code.png" aria-label="Open Candy Cane Code preview">
       <img src="assets/previews/candy-cane-code.png" alt="Candy Cane Code theme preview" loading="lazy">
     </a>
@@ -396,12 +564,16 @@
       </div>
       <div class="theme-meta">
         <span>Light</span>
-        <span>holiday</span>
+        <span>Holiday</span>
         <span>#d62828</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/candy-cane-code.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Candy Cane Code">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="holiday" style="--card-accent:#ff4d8d;--card-bg:#170713;--card-fg:#ffe6f2">
+          <article class="theme-card" data-tone="dark" data-pack="holiday" data-search="valentine glow dark holiday deep pink surfaces with soft rose syntax and warm highlights." style="--card-accent:#ff4d8d;--card-bg:#170713;--card-fg:#ffe6f2">
     <a class="preview-link" href="assets/previews/valentine-glow.png" aria-label="Open Valentine Glow preview">
       <img src="assets/previews/valentine-glow.png" alt="Valentine Glow theme preview" loading="lazy">
     </a>
@@ -412,12 +584,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>holiday</span>
+        <span>Holiday</span>
         <span>#ff4d8d</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/valentine-glow.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Valentine Glow">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="holiday" style="--card-accent:#facc15;--card-bg:#060711;--card-fg:#eef2ff">
+          <article class="theme-card" data-tone="dark" data-pack="holiday" data-search="new year neon dark holiday midnight celebration colors with gold, cyan, and pink accents." style="--card-accent:#facc15;--card-bg:#060711;--card-fg:#eef2ff">
     <a class="preview-link" href="assets/previews/new-year-neon.png" aria-label="Open New Year Neon preview">
       <img src="assets/previews/new-year-neon.png" alt="New Year Neon theme preview" loading="lazy">
     </a>
@@ -428,12 +604,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>holiday</span>
+        <span>Holiday</span>
         <span>#facc15</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/new-year-neon.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="New Year Neon">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="light" data-pack="holiday" style="--card-accent:#d83d82;--card-bg:#fffafc;--card-fg:#263047">
+          <article class="theme-card" data-tone="light" data-pack="holiday" data-search="birthday confetti light holiday bright light mode with playful color bursts." style="--card-accent:#d83d82;--card-bg:#fffafc;--card-fg:#263047">
     <a class="preview-link" href="assets/previews/birthday-confetti.png" aria-label="Open Birthday Confetti preview">
       <img src="assets/previews/birthday-confetti.png" alt="Birthday Confetti theme preview" loading="lazy">
     </a>
@@ -444,12 +624,25 @@
       </div>
       <div class="theme-meta">
         <span>Light</span>
-        <span>holiday</span>
+        <span>Holiday</span>
         <span>#d83d82</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/birthday-confetti.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Birthday Confetti">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="gaming" style="--card-accent:#7cb342;--card-bg:#09140b;--card-fg:#e6f5d6">
+        </div>
+      </section>
+
+      <section class="pack-section" data-pack-section="gaming">
+        <div class="pack-heading">
+          <h2>Gaming</h2>
+          <p>Arcade, cyber, fantasy, and cockpit-inspired coding palettes.</p>
+        </div>
+        <div class="theme-grid" aria-label="Gaming themes">
+          <article class="theme-card" data-tone="dark" data-pack="gaming" data-search="voxel craft dark gaming blocky green-and-earth coding colors with teal functions." style="--card-accent:#7cb342;--card-bg:#09140b;--card-fg:#e6f5d6">
     <a class="preview-link" href="assets/previews/voxel-craft.png" aria-label="Open Voxel Craft preview">
       <img src="assets/previews/voxel-craft.png" alt="Voxel Craft theme preview" loading="lazy">
     </a>
@@ -460,12 +653,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>gaming</span>
+        <span>Gaming</span>
         <span>#7cb342</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/voxel-craft.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Voxel Craft">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="gaming" style="--card-accent:#00f5d4;--card-bg:#08040f;--card-fg:#f6eaff">
+          <article class="theme-card" data-tone="dark" data-pack="gaming" data-search="cyber runner dark gaming high-speed cyber color with cyan, magenta, and acid yellow." style="--card-accent:#00f5d4;--card-bg:#08040f;--card-fg:#f6eaff">
     <a class="preview-link" href="assets/previews/cyber-runner.png" aria-label="Open Cyber Runner preview">
       <img src="assets/previews/cyber-runner.png" alt="Cyber Runner theme preview" loading="lazy">
     </a>
@@ -476,12 +673,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>gaming</span>
+        <span>Gaming</span>
         <span>#00f5d4</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/cyber-runner.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Cyber Runner">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="gaming" style="--card-accent:#39ff14;--card-bg:#07120b;--card-fg:#d7ffd9">
+          <article class="theme-card" data-tone="dark" data-pack="gaming" data-search="retro console dark gaming green-screen arcade tone with electric syntax." style="--card-accent:#39ff14;--card-bg:#07120b;--card-fg:#d7ffd9">
     <a class="preview-link" href="assets/previews/retro-console.png" aria-label="Open Retro Console preview">
       <img src="assets/previews/retro-console.png" alt="Retro Console theme preview" loading="lazy">
     </a>
@@ -492,12 +693,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>gaming</span>
+        <span>Gaming</span>
         <span>#39ff14</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/retro-console.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Retro Console">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="gaming" style="--card-accent:#00d7ff;--card-bg:#050b16;--card-fg:#e6f7ff">
+          <article class="theme-card" data-tone="dark" data-pack="gaming" data-search="starfighter hud dark gaming space cockpit blues with orange alerts and bright hud syntax." style="--card-accent:#00d7ff;--card-bg:#050b16;--card-fg:#e6f7ff">
     <a class="preview-link" href="assets/previews/starfighter-hud.png" aria-label="Open Starfighter HUD preview">
       <img src="assets/previews/starfighter-hud.png" alt="Starfighter HUD theme preview" loading="lazy">
     </a>
@@ -508,12 +713,16 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>gaming</span>
+        <span>Gaming</span>
         <span>#00d7ff</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/starfighter-hud.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Starfighter HUD">Copy name</button>
+    </div>
   </article>
-        <article class="theme-card" data-tone="dark" data-pack="gaming" style="--card-accent:#d99a2b;--card-bg:#120b06;--card-fg:#f4dfb4">
+          <article class="theme-card" data-tone="dark" data-pack="gaming" data-search="quest tavern dark gaming warm rpg palette with wood tones, gold syntax, and green strings." style="--card-accent:#d99a2b;--card-bg:#120b06;--card-fg:#f4dfb4">
     <a class="preview-link" href="assets/previews/quest-tavern.png" aria-label="Open Quest Tavern preview">
       <img src="assets/previews/quest-tavern.png" alt="Quest Tavern theme preview" loading="lazy">
     </a>
@@ -524,11 +733,29 @@
       </div>
       <div class="theme-meta">
         <span>Dark</span>
-        <span>gaming</span>
+        <span>Gaming</span>
         <span>#d99a2b</span>
       </div>
     </div>
+    <div class="theme-card-actions">
+      <a class="mini-action" href="assets/previews/quest-tavern.png">Open preview</a>
+      <button type="button" class="mini-action copy-theme" data-theme="Quest Tavern">Copy name</button>
+    </div>
   </article>
+        </div>
+      </section>
+      </section>
+
+      <section id="commands" class="install">
+        <h2>Command Palette helpers</h2>
+        <p>Run these from <strong>Command Palette</strong> after installing the extension.</p>
+        <ul class="command-list">
+          <li><code>Colin's Themes: Apply Current Seasonal Theme</code></li>
+          <li><code>Colin's Themes: Apply Current Holiday Theme</code></li>
+          <li><code>Colin's Themes: Pick Gaming Theme</code></li>
+          <li><code>Colin's Themes: Pick Theme By Pack</code></li>
+          <li><code>Colin's Themes: Enable Light/Dark Auto Switch</code></li>
+        </ul>
       </section>
 
       <section id="install" class="install">
@@ -557,7 +784,7 @@
     </main>
 
     <footer>
-      <span>30 themes</span>
+      <span>32 themes</span>
       <span>Built by ColinGamez</span>
     </footer>
     <script src="script.js"></script>

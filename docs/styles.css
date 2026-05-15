@@ -202,11 +202,76 @@ main {
   color: #180602;
 }
 
+.control-panel {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 2rem;
+  padding: 1rem;
+  border: 1px solid rgba(250, 130, 76, 0.24);
+  border-radius: 14px;
+  background: rgba(22, 8, 4, 0.64);
+}
+
+.search-box {
+  display: grid;
+  gap: 0.45rem;
+  width: min(100%, 34rem);
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.search-box input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid rgba(255, 191, 105, 0.26);
+  border-radius: 8px;
+  padding: 0 0.95rem;
+  background: rgba(8, 5, 4, 0.78);
+  color: var(--text);
+  font: inherit;
+}
+
+#theme-count {
+  color: var(--muted);
+  font-family: "Cascadia Code", Consolas, monospace;
+}
+
+.theme-gallery {
+  padding-bottom: 2rem;
+}
+
+.pack-section {
+  scroll-margin-top: 6rem;
+  margin: 0 0 3rem;
+}
+
+.pack-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+  margin: 0 0 1rem;
+}
+
+.pack-heading h2 {
+  margin: 0;
+  color: #fff4df;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.pack-heading p {
+  max-width: 32rem;
+  margin: 0;
+  color: var(--gold);
+  line-height: 1.5;
+}
+
 .theme-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: 1rem;
-  padding-bottom: 4rem;
 }
 
 .theme-card {
@@ -257,6 +322,26 @@ main {
   white-space: nowrap;
 }
 
+.theme-card-actions {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0 1rem 1rem;
+}
+
+.mini-action {
+  min-height: 34px;
+  border: 1px solid color-mix(in srgb, var(--card-accent), transparent 55%);
+  border-radius: 8px;
+  padding: 0.45rem 0.7rem;
+  background: color-mix(in srgb, var(--card-bg), #ffffff 5%);
+  color: var(--card-accent);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .install {
   margin: 0 0 4rem;
   padding: clamp(1.5rem, 4vw, 3rem);
@@ -274,6 +359,10 @@ main {
   margin: 0.55rem 0;
   color: var(--gold);
   line-height: 1.55;
+}
+
+.command-list {
+  padding-left: 1.25rem;
 }
 
 code {
@@ -327,6 +416,12 @@ footer {
 
   .theme-grid {
     grid-template-columns: 1fr;
+  }
+
+  .control-panel,
+  .pack-heading {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 

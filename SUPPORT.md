@@ -11,6 +11,7 @@ https://github.com/ColinGamez/My-VSC-Themes/issues
 Helpful details:
 
 - Theme name
+- Whether the issue is with a color theme, file icon theme, or command
 - Language or file type
 - A screenshot if the issue is visual
 - What feels hard to read or visually off
@@ -28,3 +29,5 @@ npm run build
 npm run check:themes
 npx @vscode/vsce package --allow-missing-repository
 ```
+
+For command issues, test from the Command Palette with one of the `Colin's Themes:` commands.

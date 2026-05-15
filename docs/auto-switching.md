@@ -4,6 +4,18 @@ VS Code can automatically switch between a preferred light theme and a preferred
 
 Official VS Code docs: https://code.visualstudio.com/docs/configure/themes#_automatically-switch-based-on-os-color-scheme
 
+## Extension Commands
+
+The extension adds Command Palette helpers for quick switching:
+
+| Command | Result |
+| --- | --- |
+| Colin's Themes: Apply Current Seasonal Theme | Picks Spring Bloom, Summer Sunset, Autumn Ember, or Winter Aurora based on the current month. |
+| Colin's Themes: Apply Current Holiday Theme | Picks Halloween, December, New Year, Valentine's, or a seasonal fallback. |
+| Colin's Themes: Pick Gaming Theme | Opens the gaming theme picker. |
+| Colin's Themes: Pick Theme By Pack | Opens every pack in a quick picker. |
+| Colin's Themes: Enable Startup Seasonal Auto Theme | Applies the current seasonal theme when VS Code starts. |
+
 ## Light And Dark Auto Switch
 
 Add this to your VS Code `settings.json`:

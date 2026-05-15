@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.4.0
+
+- Added VS Code commands for seasonal, holiday, gaming, and pack-based theme switching.
+- Added startup seasonal auto-apply settings.
+- Added the Colin's Color Icons file icon theme.
+- Added All Orange Soft and All Orange High Contrast variants.
+- Upgraded the sampler page with pack sections, search, copy-theme buttons, and command docs.
+- Tuned docs for the new command and icon features.
+
 ## 1.3.0
 
 - Added Holiday themes: Halloween Midnight, Candy Cane Code, Valentine Glow, New Year Neon, and Birthday Confetti.
