@@ -1,8 +1,8 @@
 {
   "name": "my-vsc-themes",
   "displayName": "Colin's VS Code Themes",
-  "description": "A small VS Code theme hub with colorful dark and light palettes.",
-  "version": "1.2.0",
+  "description": "A colorful VS Code theme hub with orange, seasonal, holiday, and gaming-inspired palettes.",
+  "version": "1.3.0",
   "publisher": "ColinGamez",
   "license": "MIT",
   "icon": "assets/icon.png",
@@ -10,6 +10,7 @@
     "color": "#180602",
     "theme": "dark"
   },
+  "pricing": "Free",
   "repository": {
     "type": "git",
     "url": "https://github.com/ColinGamez/My-VSC-Themes.git"
@@ -24,7 +25,8 @@
     "build:no-italics": "node scripts/build-no-italics.mjs",
     "build:extras": "node scripts/build-extra-themes.mjs",
     "build:previews": "node scripts/build-previews.mjs",
-    "build:sampler": "node scripts/build-sampler.mjs"
+    "build:sampler": "node scripts/build-sampler.mjs",
+    "check:themes": "node scripts/check-theme-quality.mjs"
   },
   "engines": {
     "vscode": "^1.90.0"
@@ -39,7 +41,12 @@
     "light theme",
     "orange",
     "color theme",
-    "seasonal themes"
+    "seasonal themes",
+    "holiday themes",
+    "gaming themes",
+    "halloween",
+    "retro",
+    "cyberpunk"
   ],
   "contributes": {
     "themes": [
@@ -142,6 +149,56 @@
         "label": "Winter Aurora",
         "uiTheme": "vs-dark",
         "path": "./themes/winter-aurora-color-theme.json"
+      },
+      {
+        "label": "Halloween Midnight",
+        "uiTheme": "vs-dark",
+        "path": "./themes/halloween-midnight-color-theme.json"
+      },
+      {
+        "label": "Candy Cane Code",
+        "uiTheme": "vs",
+        "path": "./themes/candy-cane-code-color-theme.json"
+      },
+      {
+        "label": "Valentine Glow",
+        "uiTheme": "vs-dark",
+        "path": "./themes/valentine-glow-color-theme.json"
+      },
+      {
+        "label": "New Year Neon",
+        "uiTheme": "vs-dark",
+        "path": "./themes/new-year-neon-color-theme.json"
+      },
+      {
+        "label": "Birthday Confetti",
+        "uiTheme": "vs",
+        "path": "./themes/birthday-confetti-color-theme.json"
+      },
+      {
+        "label": "Voxel Craft",
+        "uiTheme": "vs-dark",
+        "path": "./themes/voxel-craft-color-theme.json"
+      },
+      {
+        "label": "Cyber Runner",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cyber-runner-color-theme.json"
+      },
+      {
+        "label": "Retro Console",
+        "uiTheme": "vs-dark",
+        "path": "./themes/retro-console-color-theme.json"
+      },
+      {
+        "label": "Starfighter HUD",
+        "uiTheme": "vs-dark",
+        "path": "./themes/starfighter-hud-color-theme.json"
+      },
+      {
+        "label": "Quest Tavern",
+        "uiTheme": "vs-dark",
+        "path": "./themes/quest-tavern-color-theme.json"
       }
     ]
   },

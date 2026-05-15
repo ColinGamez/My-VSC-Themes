@@ -10,7 +10,9 @@ for (const filter of filters) {
     }
 
     for (const card of cards) {
-      card.classList.toggle("is-hidden", value !== "all" && card.dataset.tone !== value);
+      const isTone = value === "dark" || value === "light";
+      const isVisible = value === "all" || (isTone ? card.dataset.tone === value : card.dataset.pack === value);
+      card.classList.toggle("is-hidden", !isVisible);
     }
   });
 }

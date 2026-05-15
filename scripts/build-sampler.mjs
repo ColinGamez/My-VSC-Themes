@@ -28,6 +28,26 @@ function themeTone(theme) {
   return theme.type === "light" ? "Light" : "Dark";
 }
 
+function themePack(label) {
+  const seasonal = new Set(["Spring Bloom", "Summer Sunset", "Autumn Ember", "Winter Aurora"]);
+  const holiday = new Set(["Halloween Midnight", "Candy Cane Code", "Valentine Glow", "New Year Neon", "Birthday Confetti"]);
+  const gaming = new Set(["Voxel Craft", "Cyber Runner", "Retro Console", "Starfighter HUD", "Quest Tavern"]);
+
+  if (seasonal.has(label)) {
+    return "seasonal";
+  }
+
+  if (holiday.has(label)) {
+    return "holiday";
+  }
+
+  if (gaming.has(label)) {
+    return "gaming";
+  }
+
+  return "core";
+}
+
 function themeDescription(label) {
   const descriptions = {
     "All Orange": "Newton orange everywhere, tuned for late-night readability.",
@@ -49,7 +69,17 @@ function themeDescription(label) {
     "Spring Bloom": "Fresh light mode with green growth and pink accents.",
     "Summer Sunset": "Warm sunset chrome with coral heat and cool blue functions.",
     "Autumn Ember": "Dark harvest tones with ember orange and mellow gold syntax.",
-    "Winter Aurora": "Icy blue surfaces with aurora violet and mint highlights."
+    "Winter Aurora": "Icy blue surfaces with aurora violet and mint highlights.",
+    "Halloween Midnight": "Purple midnight surfaces with orange syntax and sharp green highlights.",
+    "Candy Cane Code": "Crisp light mode with red, green, and gold holiday syntax.",
+    "Valentine Glow": "Deep pink surfaces with soft rose syntax and warm highlights.",
+    "New Year Neon": "Midnight celebration colors with gold, cyan, and pink accents.",
+    "Birthday Confetti": "Bright light mode with playful color bursts.",
+    "Voxel Craft": "Blocky green-and-earth coding colors with teal functions.",
+    "Cyber Runner": "High-speed cyber color with cyan, magenta, and acid yellow.",
+    "Retro Console": "Green-screen arcade tone with electric syntax.",
+    "Starfighter HUD": "Space cockpit blues with orange alerts and bright HUD syntax.",
+    "Quest Tavern": "Warm RPG palette with wood tones, gold syntax, and green strings."
   };
 
   return descriptions[label] ?? "A handcrafted palette from Colin's theme hub.";
@@ -62,7 +92,9 @@ function card(item, theme) {
   const background = colors["editor.background"] ?? "#101114";
   const foreground = colors["editor.foreground"] ?? "#f1f3f5";
 
-  return `<article class="theme-card" data-tone="${theme.type}" style="--card-accent:${accent};--card-bg:${background};--card-fg:${foreground}">
+  const pack = themePack(item.label);
+
+  return `<article class="theme-card" data-tone="${theme.type}" data-pack="${pack}" style="--card-accent:${accent};--card-bg:${background};--card-fg:${foreground}">
     <a class="preview-link" href="assets/previews/${slug}.png" aria-label="Open ${escapeHtml(item.label)} preview">
       <img src="assets/previews/${slug}.png" alt="${escapeHtml(item.label)} theme preview" loading="lazy">
     </a>
@@ -73,6 +105,7 @@ function card(item, theme) {
       </div>
       <div class="theme-meta">
         <span>${themeTone(theme)}</span>
+        <span>${pack}</span>
         <span>${escapeHtml(accent)}</span>
       </div>
     </div>
@@ -112,6 +145,7 @@ const html = `<!doctype html>
       <nav aria-label="Primary">
         <a href="#themes">Themes</a>
         <a href="#install">Install</a>
+        <a href="#auto-switch">Auto Switch</a>
         <a href="${repoUrl}">GitHub</a>
       </nav>
     </header>
@@ -120,7 +154,7 @@ const html = `<!doctype html>
       <section class="hero">
         <div class="hero-copy">
           <h1>Colorful VS Code themes for switching coding moods fast.</h1>
-          <p>Orange-first, neon-ready, and packed with dark and light palettes you can install from the VS Code Marketplace.</p>
+          <p>${themes.length} themes across orange classics, seasonal palettes, holiday looks, and gaming-inspired code moods.</p>
           <div class="hero-actions">
             <a class="button primary" href="${marketplaceUrl}">Install from Marketplace</a>
             <a class="button secondary" href="#themes">Browse themes</a>
@@ -128,8 +162,8 @@ const html = `<!doctype html>
         </div>
         <div class="hero-preview" aria-label="Theme preview collage">
           <img src="assets/previews/all-orange.png" alt="All Orange preview">
-          <img src="assets/previews/neon-arcade.png" alt="Neon Arcade preview">
-          <img src="assets/previews/blue-raspberry.png" alt="Blue Raspberry preview">
+          <img src="assets/previews/halloween-midnight.png" alt="Halloween Midnight preview">
+          <img src="assets/previews/starfighter-hud.png" alt="Starfighter HUD preview">
         </div>
       </section>
 
@@ -137,6 +171,9 @@ const html = `<!doctype html>
         <button type="button" class="filter active" data-filter="all">All</button>
         <button type="button" class="filter" data-filter="dark">Dark</button>
         <button type="button" class="filter" data-filter="light">Light</button>
+        <button type="button" class="filter" data-filter="seasonal">Seasonal</button>
+        <button type="button" class="filter" data-filter="holiday">Holiday</button>
+        <button type="button" class="filter" data-filter="gaming">Gaming</button>
       </section>
 
       <section id="themes" class="theme-grid" aria-label="Theme gallery">
@@ -154,6 +191,17 @@ const html = `<!doctype html>
           <a class="button primary" href="${marketplaceUrl}">Marketplace</a>
           <a class="button secondary" href="${releaseUrl}">Manual VSIX</a>
         </div>
+      </section>
+
+      <section id="auto-switch" class="install">
+        <h2>Auto-switching setup</h2>
+        <p>Use VS Code's built-in color scheme detection to pair one light theme with one dark theme.</p>
+        <pre><code>{
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredLightColorTheme": "Spring Bloom",
+  "workbench.preferredDarkColorTheme": "All Orange"
+}</code></pre>
+        <a class="button secondary" href="auto-switching.md">More theme rotation ideas</a>
       </section>
     </main>
 
@@ -347,6 +395,7 @@ main {
 
 .toolbar {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.65rem;
   margin: 1rem 0 1.5rem;
 }
@@ -447,6 +496,15 @@ code {
   color: #fff4df;
 }
 
+pre {
+  overflow-x: auto;
+  border: 1px solid rgba(255, 191, 105, 0.24);
+  border-radius: 8px;
+  padding: 1rem;
+  background: rgba(8, 5, 4, 0.7);
+  color: #fff4df;
+}
+
 footer {
   display: flex;
   justify-content: space-between;
@@ -530,7 +588,9 @@ for (const filter of filters) {
     }
 
     for (const card of cards) {
-      card.classList.toggle("is-hidden", value !== "all" && card.dataset.tone !== value);
+      const isTone = value === "dark" || value === "light";
+      const isVisible = value === "all" || (isTone ? card.dataset.tone === value : card.dataset.pack === value);
+      card.classList.toggle("is-hidden", !isVisible);
     }
   });
 }
