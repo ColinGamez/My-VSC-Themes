@@ -2,7 +2,7 @@
   "name": "all-orange-theme",
   "displayName": "All Orange Theme",
   "description": "A VS Code theme built entirely from warm orange tones.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "local",
   "license": "MIT",
   "scripts": {
