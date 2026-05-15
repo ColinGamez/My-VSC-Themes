@@ -5,6 +5,9 @@ const docsDir = new URL("docs/", root);
 const docsAssetsDir = new URL("assets/", docsDir);
 const docsPreviewDir = new URL("previews/", docsAssetsDir);
 const packageJson = JSON.parse(await readFile(new URL("package.json", root), "utf8"));
+const marketplaceUrl = "https://marketplace.visualstudio.com/items?itemName=ColinGamez.my-vsc-themes";
+const releaseUrl = "https://github.com/ColinGamez/My-VSC-Themes/releases/latest";
+const repoUrl = "https://github.com/ColinGamez/My-VSC-Themes";
 
 function slugify(value) {
   return value
@@ -105,7 +108,7 @@ const html = `<!doctype html>
       <nav aria-label="Primary">
         <a href="#themes">Themes</a>
         <a href="#install">Install</a>
-        <a href="https://github.com/ColinGamez/My-VSC-Themes">GitHub</a>
+        <a href="${repoUrl}">GitHub</a>
       </nav>
     </header>
 
@@ -113,9 +116,9 @@ const html = `<!doctype html>
       <section class="hero">
         <div class="hero-copy">
           <h1>Colorful VS Code themes for switching coding moods fast.</h1>
-          <p>Orange-first, neon-ready, and packed with dark and light palettes you can install from a VSIX.</p>
+          <p>Orange-first, neon-ready, and packed with dark and light palettes you can install from the VS Code Marketplace.</p>
           <div class="hero-actions">
-            <a class="button primary" href="https://github.com/ColinGamez/My-VSC-Themes/releases/latest">Download VSIX</a>
+            <a class="button primary" href="${marketplaceUrl}">Install from Marketplace</a>
             <a class="button secondary" href="#themes">Browse themes</a>
           </div>
         </div>
@@ -137,13 +140,16 @@ const html = `<!doctype html>
       </section>
 
       <section id="install" class="install">
-        <h2>Install the pack</h2>
+        <h2>Install from Marketplace</h2>
         <ol>
-          <li>Download the latest <code>.vsix</code> from GitHub Releases.</li>
-          <li>In VS Code, run <strong>Extensions: Install from VSIX...</strong>.</li>
+          <li>Open the Marketplace page or search for <strong>Colin's VS Code Themes</strong> in VS Code Extensions.</li>
+          <li>Click <strong>Install</strong>.</li>
           <li>Run <strong>Preferences: Color Theme</strong> and pick a palette.</li>
         </ol>
-        <a class="button primary" href="https://github.com/ColinGamez/My-VSC-Themes/releases/latest">Latest release</a>
+        <div class="install-actions">
+          <a class="button primary" href="${marketplaceUrl}">Marketplace</a>
+          <a class="button secondary" href="${releaseUrl}">Manual VSIX</a>
+        </div>
       </section>
     </main>
 
@@ -268,11 +274,19 @@ main {
   line-height: 1.6;
 }
 
-.hero-actions {
+.hero-actions,
+.install-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
+}
+
+.hero-actions {
   margin-top: 2rem;
+}
+
+.install-actions {
+  margin-top: 1.25rem;
 }
 
 .button {

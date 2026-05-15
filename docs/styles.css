@@ -110,11 +110,19 @@ main {
   line-height: 1.6;
 }
 
-.hero-actions {
+.hero-actions,
+.install-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
+}
+
+.hero-actions {
   margin-top: 2rem;
+}
+
+.install-actions {
+  margin-top: 1.25rem;
 }
 
 .button {
