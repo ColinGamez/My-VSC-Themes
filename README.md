@@ -1,17 +1,20 @@
-# All Orange Theme
+# Colin's VS Code Themes
 
-A VS Code theme made for orange maximalists: Newton-orange code text, deep Newton-orange workbench surfaces, and warm amber accents.
+A small VS Code theme hub with orange, neon, matcha, and peach palettes.
 
 ## Themes
 
 - **All Orange**: the main theme, with italic comments and emphasis.
 - **All Orange No Italics**: the same palette without italic styling.
+- **Neon Arcade**: electric blue, hot pink, and golden syntax on a midnight UI.
+- **Matcha Grove**: deep green workbench surfaces with mint and tea-gold syntax.
+- **Peach Soda**: a soft light theme with peach UI, coral accents, and readable warm text.
 
-After changing the main theme, run `npm run build:no-italics` to regenerate the no-italic variant from it.
+After changing theme sources, run `npm run build` to regenerate derived themes.
 
 ## Test Locally
 
-Open this folder in VS Code, press `F5`, and choose **All Orange** in the Extension Development Host.
+Open this folder in VS Code, run **Run > Start Debugging**, and choose a theme in the Extension Development Host.
 
 Open files from `demos/` while tuning the theme so you can check JavaScript, React, Vue, Python, Ruby, HTML, CSS, and JSON scopes quickly.
 
@@ -27,10 +30,10 @@ If you like the editor colors but want the side UI to punch a little harder, add
 "workbench.colorCustomizations": {
   "[All Orange]": {
     "activityBar.background": "#1a0802",
-    "activityBar.border": "#ff8f24",
+    "activityBar.border": "#fa824c",
     "sideBar.background": "#1f0a02",
-    "sideBar.border": "#ff8f24",
-    "sideBar.foreground": "#ffd9a8"
+    "sideBar.border": "#fa824c",
+    "sideBar.foreground": "#ffbf69"
   }
 }
 ```

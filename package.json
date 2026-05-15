@@ -1,12 +1,14 @@
 {
   "name": "all-orange-theme",
-  "displayName": "All Orange Theme",
-  "description": "A VS Code theme built entirely from warm orange tones.",
-  "version": "0.0.3",
+  "displayName": "Colin's VS Code Themes",
+  "description": "A small VS Code theme hub with orange, neon, matcha, and peach palettes.",
+  "version": "0.1.0",
   "publisher": "local",
   "license": "MIT",
   "scripts": {
-    "build:no-italics": "node scripts/build-no-italics.mjs"
+    "build": "npm run build:no-italics && npm run build:extras",
+    "build:no-italics": "node scripts/build-no-italics.mjs",
+    "build:extras": "node scripts/build-extra-themes.mjs"
   },
   "engines": {
     "vscode": "^1.90.0"
@@ -31,6 +33,21 @@
         "label": "All Orange No Italics",
         "uiTheme": "vs-dark",
         "path": "./themes/all-orange-no-italics-color-theme.json"
+      },
+      {
+        "label": "Neon Arcade",
+        "uiTheme": "vs-dark",
+        "path": "./themes/neon-arcade-color-theme.json"
+      },
+      {
+        "label": "Matcha Grove",
+        "uiTheme": "vs-dark",
+        "path": "./themes/matcha-grove-color-theme.json"
+      },
+      {
+        "label": "Peach Soda",
+        "uiTheme": "vs",
+        "path": "./themes/peach-soda-color-theme.json"
       }
     ]
   }
