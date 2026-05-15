@@ -1,44 +1,214 @@
-# Next Extension Ideas
+# Colin's Code Suite
 
-This is the launchpad for whatever Colin's next VS Code extension becomes.
+Colin's Code Suite is a family of VS Code extensions that feel polished, useful, and fun enough for people to actually keep installed.
 
-## Best first pick
+The plan: build each tool as a standalone extension, then ship one extension pack that installs the whole suite.
 
-### Colin's Dev Kit
+## Suite Extensions
 
-A small utility extension with commands, snippets, and project helpers that feel personal instead of generic.
+### 1. Colin's Project Command Center
+
+Mission control for any workspace.
+
+Core idea:
+
+- Detect package scripts, Git status, README, tests, build commands, and common project files.
+- Show them in a clean sidebar dashboard.
+- Let users run common project actions without remembering commands.
+
+Killer feature:
+
+- A project health panel that says what is missing: README, license, tests, `.gitignore`, package scripts, screenshots, or publish docs.
 
 MVP:
 
-- Command to create a quick `README.md`, `.gitignore`, and starter folder layout.
-- Snippets for HTML, CSS, JavaScript, React, and Python.
-- Command palette actions for opening the theme gallery and GitHub repo.
-- A friendly status bar item that links to useful project actions.
+- Sidebar view.
+- npm script buttons.
+- Git branch and repo link.
+- Detected project type.
+- Quick actions for test, build, lint, and open terminal.
 
-Why this one first: it is useful every day, simple enough to ship fast, and pairs naturally with the theme hub.
+### 2. Colin's Theme Reactor
 
-## Other strong ideas
+Smart theme switching for moods, seasons, and coding sessions.
 
-### Colin's Project Launcher
+Core idea:
 
-Quickly open favorite folders, recent projects, terminals, and GitHub repos from one command palette flow.
+- Auto-switch themes based on time of day, season, workspace, or manual presets.
+- Pair with Colin's VS Code Themes first, then support any installed theme.
 
-### Code Mood Board
+Killer feature:
 
-Save screenshots, color palettes, links, and notes for coding projects inside VS Code.
+- Seasonal mode: Halloween, winter, spring, summer, New Year, birthday, and All Orange defaults.
 
-### Snippet Arcade
+MVP:
 
-A fun snippet pack with starter files for games, web pages, bots, and small experiments.
+- Morning, day, evening, and night schedules.
+- Seasonal schedule.
+- Workspace-specific theme preference.
+- Command to randomize from favorites.
 
-### Theme Companion
+### 3. Colin's README Studio
 
-Extra commands for this theme extension: switch by season, randomize theme, preview palettes, and apply matching file icons.
+A visual README builder inside VS Code.
 
-## Build order
+Core idea:
 
-1. Pick one extension idea and write the extension name, display name, and description.
-2. Scaffold with `yo code`.
-3. Build one excellent command first.
-4. Add docs, icon, changelog, and marketplace polish.
-5. Package locally, test, then publish after it feels solid.
+- Help people make GitHub and Marketplace pages look legit without fighting Markdown.
+- Generate polished sections from a webview editor.
+
+Killer feature:
+
+- One-click README polish pass that adds badges, screenshots, install steps, usage, support, license, and changelog links.
+
+MVP:
+
+- Webview editor.
+- Live Markdown preview.
+- Section templates.
+- Badge picker.
+- Screenshot block builder.
+
+### 4. Colin's Snippet Forge
+
+Turn selected code into reusable snippets.
+
+Core idea:
+
+- Highlight code, run a command, and convert it into a VS Code snippet with placeholders.
+
+Killer feature:
+
+- Auto-detect repeated identifiers and offer placeholder names.
+
+MVP:
+
+- Create snippet from selected text.
+- Choose language scope.
+- Edit prefix and description.
+- Save to user snippets.
+- Preview generated JSON before writing.
+
+### 5. Colin's Bug Report Builder
+
+Make clean bug reports from the current coding session.
+
+Core idea:
+
+- Collect the useful context people always forget: file type, selected code, diagnostics, VS Code version, extension list, branch, and recent terminal output.
+
+Killer feature:
+
+- Generates a GitHub-ready issue draft with system info and reproducible steps.
+
+MVP:
+
+- Command to create a Markdown bug report.
+- Include selected code if the user approves.
+- Include diagnostics from the active file.
+- Copy report to clipboard or save as `BUG_REPORT.md`.
+
+### 6. Colin's Repo Time Machine
+
+A visual timeline for what changed in a repo.
+
+Core idea:
+
+- Make Git history easier to scan for people who do not want a wall of commits.
+
+Killer feature:
+
+- "What changed today?" timeline grouped by file and commit.
+
+MVP:
+
+- Sidebar or webview timeline.
+- Today, this week, and this month filters.
+- Hot files list.
+- Branch summary.
+- Open changed file from timeline.
+
+### 7. Colin's Launch Pad
+
+A fast command hub for projects, scripts, links, and tools.
+
+Core idea:
+
+- One slick launcher for the user's actual workflow.
+
+Killer feature:
+
+- Per-workspace favorites: commands, folders, npm scripts, GitHub links, docs, terminals, and local files.
+
+MVP:
+
+- Command palette style webview.
+- Favorites stored per workspace.
+- Run VS Code commands.
+- Open files, folders, URLs, and terminals.
+
+### 8. Colin's Code Mood Board
+
+Creative planning boards inside VS Code.
+
+Core idea:
+
+- Save project inspiration without leaving the editor.
+
+Killer feature:
+
+- Drag in screenshots, palette colors, links, snippets, and notes, then keep them tied to the workspace.
+
+MVP:
+
+- Webview board.
+- Add notes, links, colors, and snippets.
+- Save board data in `.vscode/colin-mood-board.json`.
+- Export board to Markdown.
+
+## Extension Pack
+
+### Colin's Code Suite
+
+This is the bundle extension that installs all eight tools.
+
+MVP:
+
+- Extension pack manifest.
+- Marketplace page explaining the suite.
+- Links to each tool.
+- Recommended install path: start with Theme Reactor and Project Command Center.
+
+## Build Order
+
+1. Theme Reactor
+2. Project Command Center
+3. README Studio
+4. Snippet Forge
+5. Launch Pad
+6. Bug Report Builder
+7. Repo Time Machine
+8. Code Mood Board
+9. Colin's Code Suite extension pack
+
+Why this order: Theme Reactor uses the theme hub we already have, Project Command Center creates the daily-use anchor, README Studio is a very shareable tool, and Snippet Forge gives the suite a strong coding utility.
+
+## Shared Design Rules
+
+- Every tool should feel useful within 30 seconds.
+- Every tool gets one standout feature before extra settings.
+- Use normal VS Code APIs first: commands, sidebar views, webviews, status bar items, workspace storage, and settings.
+- Keep telemetry off unless there is a clear reason and clear opt-in.
+- Make every extension useful alone, then better as part of the suite.
+
+## First Milestone
+
+Ship Theme Reactor as the first suite tool.
+
+Milestone scope:
+
+- New extension scaffold.
+- Theme schedule settings.
+- Manual commands for morning, day, evening, night, seasonal, and random favorite.
+- First-class support for Colin's VS Code Themes.
+- README, icon, changelog, and Marketplace polish.
