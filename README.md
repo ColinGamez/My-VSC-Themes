@@ -1,6 +1,6 @@
 # All Orange Theme
 
-A VS Code theme made for orange maximalists: burnt-orange editor surfaces, Newton-orange code text, citrus highlights, and amber syntax.
+A VS Code theme made for orange maximalists: Newton-orange code text, deep Newton-orange workbench surfaces, and warm amber accents.
 
 ## Themes
 
