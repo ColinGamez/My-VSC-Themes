@@ -2,9 +2,14 @@
   "name": "my-vsc-themes",
   "displayName": "Colin's VS Code Themes",
   "description": "A small VS Code theme hub with colorful dark and light palettes.",
-  "version": "1.0.0",
-  "publisher": "local",
+  "version": "1.1.0",
+  "publisher": "ColinGamez",
   "license": "MIT",
+  "icon": "assets/icon.png",
+  "galleryBanner": {
+    "color": "#180602",
+    "theme": "dark"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ColinGamez/My-VSC-Themes.git"
@@ -14,10 +19,12 @@
     "url": "https://github.com/ColinGamez/My-VSC-Themes/issues"
   },
   "scripts": {
-    "build": "npm run build:no-italics && npm run build:extras && npm run build:previews",
+    "build": "npm run build:icon && npm run build:no-italics && npm run build:extras && npm run build:previews && npm run build:sampler",
+    "build:icon": "node scripts/build-icon.mjs",
     "build:no-italics": "node scripts/build-no-italics.mjs",
     "build:extras": "node scripts/build-extra-themes.mjs",
-    "build:previews": "node scripts/build-previews.mjs"
+    "build:previews": "node scripts/build-previews.mjs",
+    "build:sampler": "node scripts/build-sampler.mjs"
   },
   "engines": {
     "vscode": "^1.90.0"
@@ -27,7 +34,9 @@
   ],
   "keywords": [
     "theme",
+    "theme pack",
     "dark theme",
+    "light theme",
     "orange",
     "color theme"
   ],
@@ -87,6 +96,31 @@
         "label": "Honey Terminal",
         "uiTheme": "vs",
         "path": "./themes/honey-terminal-color-theme.json"
+      },
+      {
+        "label": "Pumpkin Hacker",
+        "uiTheme": "vs-dark",
+        "path": "./themes/pumpkin-hacker-color-theme.json"
+      },
+      {
+        "label": "Cyber Grape",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cyber-grape-color-theme.json"
+      },
+      {
+        "label": "Cotton Candy Terminal",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cotton-candy-terminal-color-theme.json"
+      },
+      {
+        "label": "XP Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/xp-dark-color-theme.json"
+      },
+      {
+        "label": "Solar Flare",
+        "uiTheme": "vs-dark",
+        "path": "./themes/solar-flare-color-theme.json"
       }
     ]
   },

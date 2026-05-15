@@ -1,7 +1,9 @@
 .sixth/**
 .vscode/**
+.github/**
 demos/**
 scripts/**
+docs/**
 .gitignore
 package-lock.json
 *.vsix
