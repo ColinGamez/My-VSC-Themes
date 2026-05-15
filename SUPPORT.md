@@ -12,6 +12,7 @@ Helpful details:
 
 - Theme name
 - Whether the issue is with a color theme, file icon theme, or command
+- If it is a preset command, mention which settings changed unexpectedly
 - Language or file type
 - A screenshot if the issue is visual
 - What feels hard to read or visually off
@@ -31,3 +32,5 @@ npx @vscode/vsce package --allow-missing-repository
 ```
 
 For command issues, test from the Command Palette with one of the `Colin's Themes:` commands.
+
+For CI or release issues, include the GitHub Actions run URL and the failing step name.

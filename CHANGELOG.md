@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.5.0
+
+- Added brand banner, logo mark, and social preview image generation.
+- Added real VS Code screenshots captured from an isolated local VS Code profile.
+- Added CI workflow for build, contrast checks, packaging, and VSIX artifact upload.
+- Added manual release workflow for GitHub releases and optional Marketplace publishing.
+- Added settings preset commands for orange, focus, light, and gaming coding setups.
+- Added reusable screenshot capture script.
+
 ## 1.4.0
 
 - Added VS Code commands for seasonal, holiday, gaming, and pack-based theme switching.

@@ -70,6 +70,60 @@ async function setTheme(label, detail) {
   vscode.window.showInformationMessage(`Colin's Themes: switched to ${label}${detail ? ` (${detail})` : ""}.`);
 }
 
+async function updateGlobal(section, key, value) {
+  await vscode.workspace
+    .getConfiguration(section)
+    .update(key, value, vscode.ConfigurationTarget.Global);
+}
+
+async function applySettingsPreset({ name, theme, minimap, renderWhitespace }) {
+  await updateGlobal("workbench", "colorTheme", theme);
+  await updateGlobal("workbench", "iconTheme", "colins-color-icons");
+  await updateGlobal("editor", "fontLigatures", true);
+  await updateGlobal("editor", "minimap.enabled", minimap);
+  await updateGlobal("editor", "bracketPairColorization.enabled", true);
+  await updateGlobal("editor", "guides.bracketPairs", "active");
+  await updateGlobal("editor", "smoothScrolling", true);
+  await updateGlobal("editor", "renderWhitespace", renderWhitespace);
+  vscode.window.showInformationMessage(`Colin's Themes: applied ${name}.`);
+}
+
+async function applyOrangePreset() {
+  await applySettingsPreset({
+    name: "Orange Coding Preset",
+    theme: "All Orange",
+    minimap: true,
+    renderWhitespace: "selection"
+  });
+}
+
+async function applyFocusPreset() {
+  await applySettingsPreset({
+    name: "Focus Preset",
+    theme: "All Orange High Contrast",
+    minimap: false,
+    renderWhitespace: "boundary"
+  });
+}
+
+async function applyLightPreset() {
+  await applySettingsPreset({
+    name: "Light Coding Preset",
+    theme: "Spring Bloom",
+    minimap: false,
+    renderWhitespace: "selection"
+  });
+}
+
+async function applyGamingPreset() {
+  await applySettingsPreset({
+    name: "Gaming Preset",
+    theme: "Starfighter HUD",
+    minimap: true,
+    renderWhitespace: "none"
+  });
+}
+
 async function applySeasonalTheme() {
   const theme = monthTheme();
   await setTheme(theme.label, theme.detail);
@@ -156,7 +210,11 @@ function activate(context) {
     vscode.commands.registerCommand("my-vsc-themes.pickThemeByPack", pickThemeByPack),
     vscode.commands.registerCommand("my-vsc-themes.enableLightDarkAutoSwitch", enableLightDarkAutoSwitch),
     vscode.commands.registerCommand("my-vsc-themes.enableMonthlyAutoTheme", enableMonthlyAutoTheme),
-    vscode.commands.registerCommand("my-vsc-themes.disableMonthlyAutoTheme", disableMonthlyAutoTheme)
+    vscode.commands.registerCommand("my-vsc-themes.disableMonthlyAutoTheme", disableMonthlyAutoTheme),
+    vscode.commands.registerCommand("my-vsc-themes.applyOrangePreset", applyOrangePreset),
+    vscode.commands.registerCommand("my-vsc-themes.applyFocusPreset", applyFocusPreset),
+    vscode.commands.registerCommand("my-vsc-themes.applyLightPreset", applyLightPreset),
+    vscode.commands.registerCommand("my-vsc-themes.applyGamingPreset", applyGamingPreset)
   );
 
   setTimeout(() => {

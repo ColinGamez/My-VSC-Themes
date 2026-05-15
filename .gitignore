@@ -1,3 +1,5 @@
 .sixth/
 node_modules/
 *.vsix
+.tmp-vscode-screenshot-user/
+.tmp-vscode-screenshot-extensions/

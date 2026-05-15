@@ -15,6 +15,10 @@ The extension adds Command Palette helpers for quick switching:
 | Colin's Themes: Pick Gaming Theme | Opens the gaming theme picker. |
 | Colin's Themes: Pick Theme By Pack | Opens every pack in a quick picker. |
 | Colin's Themes: Enable Startup Seasonal Auto Theme | Applies the current seasonal theme when VS Code starts. |
+| Colin's Themes: Apply Orange Coding Preset | Applies All Orange, file icons, ligatures, minimap, bracket guides, and smooth scrolling. |
+| Colin's Themes: Apply Focus Preset | Applies All Orange High Contrast, file icons, ligatures, no minimap, and focused whitespace hints. |
+| Colin's Themes: Apply Light Coding Preset | Applies Spring Bloom, file icons, ligatures, no minimap, and bracket guides. |
+| Colin's Themes: Apply Gaming Preset | Applies Starfighter HUD, file icons, ligatures, minimap, and bracket guides. |
 
 ## Light And Dark Auto Switch
 

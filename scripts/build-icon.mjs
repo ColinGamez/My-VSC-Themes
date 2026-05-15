@@ -4,8 +4,11 @@ import sharp from "sharp";
 
 const assetDir = new URL("../assets/", import.meta.url);
 const iconPath = new URL("icon.png", assetDir);
+const logoPath = new URL("logo-mark.png", assetDir);
+const bannerPath = new URL("brand-banner.png", assetDir);
+const socialPath = new URL("social-preview.png", assetDir);
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+const markSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
   <defs>
     <linearGradient id="bg" x1="70" y1="40" x2="450" y2="470" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fa824c"/>
@@ -31,5 +34,44 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" vi
   <circle cx="128" cy="384" r="20" fill="#fa824c"/>
 </svg>`;
 
+const bannerSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="520" viewBox="0 0 1400 520">
+  <defs>
+    <linearGradient id="bannerBg" x1="0" y1="0" x2="1400" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#180602"/>
+      <stop offset="0.46" stop-color="#281008"/>
+      <stop offset="1" stop-color="#06111f"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="0" cy="0" r="1" gradientTransform="translate(232 96) rotate(43) scale(460 320)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fa824c" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#fa824c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blueGlow" cx="0" cy="0" r="1" gradientTransform="translate(1120 90) rotate(129) scale(430 270)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00d7ff" stop-opacity=".48"/>
+      <stop offset="1" stop-color="#00d7ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1400" height="520" fill="url(#bannerBg)"/>
+  <rect width="1400" height="520" fill="url(#orangeGlow)"/>
+  <rect width="1400" height="520" fill="url(#blueGlow)"/>
+  <g transform="translate(96 86) scale(.68)">
+    ${markSvg.replace(/<svg[^>]*>|<\/svg>/g, "")}
+  </g>
+  <text x="488" y="200" font-family="Segoe UI, Arial, sans-serif" font-size="70" font-weight="900" fill="#fff4df">Colin's VS Code Themes</text>
+  <text x="492" y="276" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" fill="#ffbf69">32 themes, file icons, presets, and commands.</text>
+  <g font-family="Consolas, Cascadia Code, monospace" font-size="24" font-weight="700">
+    <rect x="494" y="342" width="164" height="50" rx="10" fill="#fa824c"/>
+    <text x="534" y="375" fill="#180602">orange</text>
+    <rect x="676" y="342" width="172" height="50" rx="10" fill="#00d7ff"/>
+    <text x="718" y="375" fill="#06111f">icons</text>
+    <rect x="866" y="342" width="178" height="50" rx="10" fill="#ff4fd8"/>
+    <text x="902" y="375" fill="#180602">presets</text>
+    <rect x="1062" y="342" width="196" height="50" rx="10" fill="#ffbf69"/>
+    <text x="1100" y="375" fill="#180602">seasonal</text>
+  </g>
+</svg>`;
+
 await mkdir(assetDir, { recursive: true });
-await sharp(Buffer.from(svg)).resize(256, 256).png().toFile(fileURLToPath(iconPath));
+await sharp(Buffer.from(markSvg)).resize(256, 256).png().toFile(fileURLToPath(iconPath));
+await sharp(Buffer.from(markSvg)).resize(512, 512).png().toFile(fileURLToPath(logoPath));
+await sharp(Buffer.from(bannerSvg)).png().toFile(fileURLToPath(bannerPath));
+await sharp(Buffer.from(bannerSvg)).resize(1200, 630).png().toFile(fileURLToPath(socialPath));

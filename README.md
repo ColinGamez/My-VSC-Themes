@@ -1,10 +1,18 @@
 # Colin's VS Code Themes
 
-A colorful VS Code theme hub built around fast mood switching: orange-first classics, seasonal palettes, holiday themes, gaming-inspired looks, file icons, and theme-switching commands. It started with **All Orange** and grew into a 32-theme pack.
+![Colin's VS Code Themes banner](assets/brand-banner.png)
+
+A colorful VS Code theme hub built around fast mood switching: orange-first classics, seasonal palettes, holiday themes, gaming-inspired looks, file icons, settings presets, and theme-switching commands. It started with **All Orange** and grew into a 32-theme pack.
 
 Marketplace: https://marketplace.visualstudio.com/items?itemName=ColinGamez.my-vsc-themes
 
 Sampler: https://colingamez.github.io/My-VSC-Themes/
+
+## Real VS Code Screenshots
+
+| All Orange | Spring Bloom | Starfighter HUD |
+| --- | --- | --- |
+| ![All Orange in VS Code](assets/screenshots/all-orange-vscode.png) | ![Spring Bloom in VS Code](assets/screenshots/spring-bloom-vscode.png) | ![Starfighter HUD in VS Code](assets/screenshots/starfighter-hud-vscode.png) |
 
 ## Theme Packs
 
@@ -77,6 +85,10 @@ After installing the extension, run these from the Command Palette:
 | **Colin's Themes: Pick Theme By Pack** | Opens a quick picker grouped by theme pack. |
 | **Colin's Themes: Enable Light/Dark Auto Switch** | Enables VS Code's built-in OS light/dark theme switching with Spring Bloom and All Orange. |
 | **Colin's Themes: Enable Startup Seasonal Auto Theme** | Applies the seasonal theme when VS Code starts. |
+| **Colin's Themes: Apply Orange Coding Preset** | Applies All Orange, Colin's Color Icons, ligatures, minimap, bracket guides, and smooth scrolling. |
+| **Colin's Themes: Apply Focus Preset** | Applies All Orange High Contrast, Colin's Color Icons, ligatures, no minimap, bracket guides, and whitespace hints. |
+| **Colin's Themes: Apply Light Coding Preset** | Applies Spring Bloom, Colin's Color Icons, ligatures, no minimap, and bracket guides. |
+| **Colin's Themes: Apply Gaming Preset** | Applies Starfighter HUD, Colin's Color Icons, ligatures, minimap, and bracket guides. |
 
 ## Auto-Switching Ideas
 
@@ -111,6 +123,18 @@ npx @vscode/vsce package --allow-missing-repository
 ```
 
 `npm run build` regenerates derived theme files, the extension icon, PNG previews, and the static sampler page. `npm run check:themes` verifies core contrast for every contributed theme.
+
+## CI And Releases
+
+GitHub Actions runs build, contrast checks, VSIX packaging, and artifact upload on pushes and pull requests.
+
+The manual **Release** workflow can create a GitHub release and optionally publish to the VS Code Marketplace when the repository has a `VSCE_PAT` secret with Marketplace Manage scope.
+
+To capture fresh local VS Code screenshots:
+
+```powershell
+.\scripts\capture-vscode-screenshots.ps1 -VsixPath .\my-vsc-themes-1.5.0.vsix
+```
 
 ## Inspect Scopes
 

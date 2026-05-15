@@ -141,6 +141,8 @@ function card(item, theme) {
 
 await mkdir(docsPreviewDir, { recursive: true });
 await copyFile(new URL("assets/icon.png", root), new URL("icon.png", docsAssetsDir));
+await copyFile(new URL("assets/brand-banner.png", root), new URL("brand-banner.png", docsAssetsDir));
+await copyFile(new URL("assets/social-preview.png", root), new URL("social-preview.png", docsAssetsDir));
 
 const cardsByPack = new Map();
 const themes = [];
@@ -177,6 +179,7 @@ const html = `<!doctype html>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Colin's VS Code Themes</title>
     <meta name="description" content="A colorful VS Code theme hub by ColinGamez.">
+    <meta property="og:image" content="assets/social-preview.png">
     <link rel="icon" href="assets/icon.png">
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -199,7 +202,7 @@ const html = `<!doctype html>
       <section class="hero">
         <div class="hero-copy">
           <h1>Colorful VS Code themes for switching coding moods fast.</h1>
-          <p>${themes.length} themes across orange classics, seasonal palettes, holiday looks, and gaming-inspired code moods.</p>
+          <p>${themes.length} themes across orange classics, seasonal palettes, holiday looks, gaming-inspired code moods, file icons, and settings presets.</p>
           <div class="hero-actions">
             <a class="button primary" href="${marketplaceUrl}">Install from Marketplace</a>
             <a class="button secondary" href="#themes">Browse themes</a>
@@ -244,6 +247,10 @@ const html = `<!doctype html>
           <li><code>Colin's Themes: Pick Gaming Theme</code></li>
           <li><code>Colin's Themes: Pick Theme By Pack</code></li>
           <li><code>Colin's Themes: Enable Light/Dark Auto Switch</code></li>
+          <li><code>Colin's Themes: Apply Orange Coding Preset</code></li>
+          <li><code>Colin's Themes: Apply Focus Preset</code></li>
+          <li><code>Colin's Themes: Apply Light Coding Preset</code></li>
+          <li><code>Colin's Themes: Apply Gaming Preset</code></li>
         </ul>
       </section>
 

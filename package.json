@@ -1,8 +1,8 @@
 {
   "name": "my-vsc-themes",
   "displayName": "Colin's VS Code Themes",
-  "description": "A colorful VS Code theme hub with themes, file icons, variants, and theme-switching commands.",
-  "version": "1.4.0",
+  "description": "A colorful VS Code theme hub with themes, file icons, presets, automation, and theme-switching commands.",
+  "version": "1.5.0",
   "publisher": "ColinGamez",
   "license": "MIT",
   "main": "./extension.js",
@@ -14,7 +14,11 @@
     "onCommand:my-vsc-themes.pickThemeByPack",
     "onCommand:my-vsc-themes.enableLightDarkAutoSwitch",
     "onCommand:my-vsc-themes.enableMonthlyAutoTheme",
-    "onCommand:my-vsc-themes.disableMonthlyAutoTheme"
+    "onCommand:my-vsc-themes.disableMonthlyAutoTheme",
+    "onCommand:my-vsc-themes.applyOrangePreset",
+    "onCommand:my-vsc-themes.applyFocusPreset",
+    "onCommand:my-vsc-themes.applyLightPreset",
+    "onCommand:my-vsc-themes.applyGamingPreset"
   ],
   "extensionKind": [
     "ui"
@@ -102,6 +106,26 @@
       {
         "command": "my-vsc-themes.disableMonthlyAutoTheme",
         "title": "Disable Startup Seasonal Auto Theme",
+        "category": "Colin's Themes"
+      },
+      {
+        "command": "my-vsc-themes.applyOrangePreset",
+        "title": "Apply Orange Coding Preset",
+        "category": "Colin's Themes"
+      },
+      {
+        "command": "my-vsc-themes.applyFocusPreset",
+        "title": "Apply Focus Preset",
+        "category": "Colin's Themes"
+      },
+      {
+        "command": "my-vsc-themes.applyLightPreset",
+        "title": "Apply Light Coding Preset",
+        "category": "Colin's Themes"
+      },
+      {
+        "command": "my-vsc-themes.applyGamingPreset",
+        "title": "Apply Gaming Preset",
         "category": "Colin's Themes"
       }
     ],
