@@ -1,14 +1,23 @@
 {
-  "name": "all-orange-theme",
+  "name": "my-vsc-themes",
   "displayName": "Colin's VS Code Themes",
   "description": "A small VS Code theme hub with colorful dark and light palettes.",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "publisher": "local",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ColinGamez/My-VSC-Themes.git"
+  },
+  "homepage": "https://github.com/ColinGamez/My-VSC-Themes#readme",
+  "bugs": {
+    "url": "https://github.com/ColinGamez/My-VSC-Themes/issues"
+  },
   "scripts": {
-    "build": "npm run build:no-italics && npm run build:extras",
+    "build": "npm run build:no-italics && npm run build:extras && npm run build:previews",
     "build:no-italics": "node scripts/build-no-italics.mjs",
-    "build:extras": "node scripts/build-extra-themes.mjs"
+    "build:extras": "node scripts/build-extra-themes.mjs",
+    "build:previews": "node scripts/build-previews.mjs"
   },
   "engines": {
     "vscode": "^1.90.0"
@@ -80,5 +89,8 @@
         "path": "./themes/honey-terminal-color-theme.json"
       }
     ]
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
   }
 }

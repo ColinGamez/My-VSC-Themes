@@ -3,4 +3,5 @@
 demos/**
 scripts/**
 .gitignore
+package-lock.json
 *.vsix

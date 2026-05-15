@@ -1,36 +1,52 @@
 # Colin's VS Code Themes
 
-A small VS Code theme hub with colorful dark and light palettes.
+A small VS Code theme hub with colorful dark and light palettes. It started with **All Orange**, then grew into a full theme pack for bouncing between different coding moods.
 
 ## Themes
 
-- **All Orange**: the main theme, with italic comments and emphasis.
-- **All Orange No Italics**: the same palette without italic styling.
-- **Neon Arcade**: electric blue, hot pink, and golden syntax on a midnight UI.
-- **Matcha Grove**: deep green workbench surfaces with mint and tea-gold syntax.
-- **Peach Soda**: a soft light theme with peach UI, coral accents, and readable warm text.
-- **Blue Raspberry**: cold blue surfaces with raspberry keywords and candy-bright accents.
-- **Cherry Cola**: dark cola surfaces, cherry highlights, and creamy syntax.
-- **Lavender Static**: violet workbench tones with cyan signal colors and pink type accents.
-- **Ocean Byte**: teal-black surfaces with seafoam, blue, and warm marker colors.
-- **Graphite Pop**: neutral graphite UI with bright cyan, pink, yellow, and green syntax.
-- **Honey Terminal**: a warm light theme with honey-gold UI and readable brown text.
+| Theme | Style | Preview |
+| --- | --- | --- |
+| **All Orange** | Dark Newton-orange flagship theme with warm workbench surfaces. | ![All Orange preview](assets/previews/all-orange.png) |
+| **All Orange No Italics** | Same orange palette without italic token styling. | ![All Orange No Italics preview](assets/previews/all-orange-no-italics.png) |
+| **Neon Arcade** | Electric blue, hot pink, and golden syntax on a midnight UI. | ![Neon Arcade preview](assets/previews/neon-arcade.png) |
+| **Matcha Grove** | Deep green workbench surfaces with mint and tea-gold syntax. | ![Matcha Grove preview](assets/previews/matcha-grove.png) |
+| **Peach Soda** | Soft light theme with peach UI, coral accents, and readable warm text. | ![Peach Soda preview](assets/previews/peach-soda.png) |
+| **Blue Raspberry** | Cold blue surfaces with raspberry keywords and candy-bright accents. | ![Blue Raspberry preview](assets/previews/blue-raspberry.png) |
+| **Cherry Cola** | Dark cola surfaces, cherry highlights, and creamy syntax. | ![Cherry Cola preview](assets/previews/cherry-cola.png) |
+| **Lavender Static** | Violet workbench tones with cyan signal colors and pink type accents. | ![Lavender Static preview](assets/previews/lavender-static.png) |
+| **Ocean Byte** | Teal-black surfaces with seafoam, blue, and warm marker colors. | ![Ocean Byte preview](assets/previews/ocean-byte.png) |
+| **Graphite Pop** | Neutral graphite UI with bright cyan, pink, yellow, and green syntax. | ![Graphite Pop preview](assets/previews/graphite-pop.png) |
+| **Honey Terminal** | Warm light theme with honey-gold UI and readable brown text. | ![Honey Terminal preview](assets/previews/honey-terminal.png) |
 
-After changing theme sources, run `npm run build` to regenerate derived themes.
+## Install From A VSIX
 
-## Test Locally
+1. Download the latest `.vsix` from the GitHub Releases page.
+2. In VS Code, run **Extensions: Install from VSIX...**.
+3. Select the downloaded package.
+4. Run **Preferences: Color Theme** and pick a theme from the pack.
+
+## Local Development
 
 Open this folder in VS Code, run **Run > Start Debugging**, and choose a theme in the Extension Development Host.
 
-Open files from `demos/` while tuning the theme so you can check JavaScript, React, Vue, Python, Ruby, HTML, CSS, and JSON scopes quickly.
+Open files from `demos/` while tuning the themes so you can check JavaScript, React, Vue, Python, Ruby, HTML, CSS, and JSON scopes quickly.
+
+## Build
+
+```sh
+npm run build
+npx @vscode/vsce package --allow-missing-repository
+```
+
+`npm run build` regenerates derived theme files and SVG previews.
 
 ## Inspect Scopes
 
 In the Extension Development Host, run **Developer: Inspect Editor Tokens and Scopes** from the Command Palette. Click a token to see the TextMate scopes and semantic token data that the theme can target.
 
-## Optional Higher-Contrast Sidebar
+## Optional Higher-Contrast Orange Sidebar
 
-If you like the editor colors but want the side UI to punch a little harder, add this to your VS Code settings:
+If you like **All Orange** but want the side UI to punch a little harder, add this to your VS Code settings:
 
 ```json
 "workbench.colorCustomizations": {
