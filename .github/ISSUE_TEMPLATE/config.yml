@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: VS Code Marketplace page
+    url: https://marketplace.visualstudio.com/items?itemName=ColinGamez.my-vsc-themes
+    about: Install or review the extension on the Marketplace.
+  - name: Theme gallery
+    url: https://colingamez.github.io/My-VSC-Themes/
+    about: Preview the current theme collection.

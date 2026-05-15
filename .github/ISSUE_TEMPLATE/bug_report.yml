@@ -1,0 +1,94 @@
+name: Theme bug or readability issue
+description: Report unreadable colors, broken icons, commands, or docs problems.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping make Colin's VS Code Themes cleaner. Screenshots are extra useful for theme bugs.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Color theme
+        - File icon theme
+        - Preset command
+        - Marketplace or docs
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Theme
+      options:
+        - All Orange
+        - All Orange Soft
+        - All Orange No Italics
+        - All Orange High Contrast
+        - Autumn Ember
+        - Birthday Confetti
+        - Blue Raspberry
+        - Candy Cane Code
+        - Cherry Cola
+        - Cotton Candy Terminal
+        - Cyber Grape
+        - Cyber Runner
+        - Graphite Pop
+        - Halloween Midnight
+        - Honey Terminal
+        - Lavender Static
+        - Matcha Grove
+        - Neon Arcade
+        - New Year Neon
+        - Ocean Byte
+        - Peach Soda
+        - Pumpkin Hacker
+        - Quest Tavern
+        - Retro Console
+        - Solar Flare
+        - Spring Bloom
+        - Starfighter HUD
+        - Summer Sunset
+        - Valentine Glow
+        - Voxel Craft
+        - Winter Aurora
+        - XP Dark
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language or file type
+      description: Example: JavaScript, Python, JSON, Markdown, Vue, TSX.
+      placeholder: TSX
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Tell us what looks wrong or what broke.
+      placeholder: The selected text is hard to read in a React component.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      placeholder: The text should stay readable against the selection background.
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshot
+      description: Drag in a screenshot if you can. It helps a lot.
+  - type: input
+    id: vscode_version
+    attributes:
+      label: VS Code version
+      placeholder: "1.100.2"
+  - type: input
+    id: extension_version
+    attributes:
+      label: Extension version
+      placeholder: "1.5.0"

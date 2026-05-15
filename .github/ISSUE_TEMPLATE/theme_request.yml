@@ -1,0 +1,54 @@
+name: New theme request
+description: Suggest a new color theme, seasonal theme, or icon direction.
+title: "[Theme request]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Drop the vibe, colors, and any references. This repo is built for fun theme experiments.
+  - type: input
+    id: theme_name
+    attributes:
+      label: Theme name or vibe
+      placeholder: "Midnight Lime, Rainy Arcade, Firewatch Desk..."
+    validations:
+      required: true
+  - type: dropdown
+    id: base
+    attributes:
+      label: Base style
+      options:
+        - Dark theme
+        - Light theme
+        - High contrast
+        - Not sure yet
+    validations:
+      required: true
+  - type: textarea
+    id: palette
+    attributes:
+      label: Colors
+      description: Hex colors are perfect, but normal color names work too.
+      placeholder: "Background: deep orange. Syntax: neon orange, soft cream, gold, coral."
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Add links, screenshots, games, seasons, albums, apps, or anything with the right mood.
+  - type: checkboxes
+    id: priorities
+    attributes:
+      label: What should stand out?
+      options:
+        - label: Keywords
+        - label: Strings
+        - label: Functions
+        - label: Variables
+        - label: Comments
+        - label: HTML or JSX tags
+        - label: Errors and warnings
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility notes
+      description: Mention anything that helps, like low eye strain, colorblind-friendly contrast, or no italics.
