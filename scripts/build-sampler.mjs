@@ -45,7 +45,11 @@ function themeDescription(label) {
     "Cyber Grape": "Purple cyberpunk surfaces with lime sparks.",
     "Cotton Candy Terminal": "Soft dark candy tones with pink and baby-blue syntax.",
     "XP Dark": "A nostalgic blue-gray dark theme with classic green accents.",
-    "Solar Flare": "High-energy solar golds and reds on dark ember UI."
+    "Solar Flare": "High-energy solar golds and reds on dark ember UI.",
+    "Spring Bloom": "Fresh light mode with green growth and pink accents.",
+    "Summer Sunset": "Warm sunset chrome with coral heat and cool blue functions.",
+    "Autumn Ember": "Dark harvest tones with ember orange and mellow gold syntax.",
+    "Winter Aurora": "Icy blue surfaces with aurora violet and mint highlights."
   };
 
   return descriptions[label] ?? "A handcrafted palette from Colin's theme hub.";

@@ -24,6 +24,10 @@ Marketplace: https://marketplace.visualstudio.com/items?itemName=ColinGamez.my-v
 | **Cotton Candy Terminal** | Soft dark candy tones with pink and baby-blue syntax. | ![Cotton Candy Terminal preview](assets/previews/cotton-candy-terminal.png) |
 | **XP Dark** | A nostalgic blue-gray dark theme with classic green accents. | ![XP Dark preview](assets/previews/xp-dark.png) |
 | **Solar Flare** | High-energy solar golds and reds on dark ember UI. | ![Solar Flare preview](assets/previews/solar-flare.png) |
+| **Spring Bloom** | Fresh light theme with green growth, pink accents, and sunny syntax. | ![Spring Bloom preview](assets/previews/spring-bloom.png) |
+| **Summer Sunset** | Warm dark theme with orange heat, coral highlights, and cool blue functions. | ![Summer Sunset preview](assets/previews/summer-sunset.png) |
+| **Autumn Ember** | Dark harvest palette with ember orange, leaf red, and mellow gold syntax. | ![Autumn Ember preview](assets/previews/autumn-ember.png) |
+| **Winter Aurora** | Icy dark theme with blue frost, aurora violet, and mint highlights. | ![Winter Aurora preview](assets/previews/winter-aurora.png) |
 
 ## Theme Sampler
 

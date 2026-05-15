@@ -2,7 +2,7 @@
   "name": "my-vsc-themes",
   "displayName": "Colin's VS Code Themes",
   "description": "A small VS Code theme hub with colorful dark and light palettes.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "publisher": "ColinGamez",
   "license": "MIT",
   "icon": "assets/icon.png",
@@ -38,7 +38,8 @@
     "dark theme",
     "light theme",
     "orange",
-    "color theme"
+    "color theme",
+    "seasonal themes"
   ],
   "contributes": {
     "themes": [
@@ -121,6 +122,26 @@
         "label": "Solar Flare",
         "uiTheme": "vs-dark",
         "path": "./themes/solar-flare-color-theme.json"
+      },
+      {
+        "label": "Spring Bloom",
+        "uiTheme": "vs",
+        "path": "./themes/spring-bloom-color-theme.json"
+      },
+      {
+        "label": "Summer Sunset",
+        "uiTheme": "vs-dark",
+        "path": "./themes/summer-sunset-color-theme.json"
+      },
+      {
+        "label": "Autumn Ember",
+        "uiTheme": "vs-dark",
+        "path": "./themes/autumn-ember-color-theme.json"
+      },
+      {
+        "label": "Winter Aurora",
+        "uiTheme": "vs-dark",
+        "path": "./themes/winter-aurora-color-theme.json"
       }
     ]
   },
