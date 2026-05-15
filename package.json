@@ -1,8 +1,8 @@
 {
   "name": "all-orange-theme",
   "displayName": "Colin's VS Code Themes",
-  "description": "A small VS Code theme hub with orange, neon, matcha, and peach palettes.",
-  "version": "0.1.0",
+  "description": "A small VS Code theme hub with colorful dark and light palettes.",
+  "version": "0.2.0",
   "publisher": "local",
   "license": "MIT",
   "scripts": {
@@ -48,6 +48,36 @@
         "label": "Peach Soda",
         "uiTheme": "vs",
         "path": "./themes/peach-soda-color-theme.json"
+      },
+      {
+        "label": "Blue Raspberry",
+        "uiTheme": "vs-dark",
+        "path": "./themes/blue-raspberry-color-theme.json"
+      },
+      {
+        "label": "Cherry Cola",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cherry-cola-color-theme.json"
+      },
+      {
+        "label": "Lavender Static",
+        "uiTheme": "vs-dark",
+        "path": "./themes/lavender-static-color-theme.json"
+      },
+      {
+        "label": "Ocean Byte",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ocean-byte-color-theme.json"
+      },
+      {
+        "label": "Graphite Pop",
+        "uiTheme": "vs-dark",
+        "path": "./themes/graphite-pop-color-theme.json"
+      },
+      {
+        "label": "Honey Terminal",
+        "uiTheme": "vs",
+        "path": "./themes/honey-terminal-color-theme.json"
       }
     ]
   }

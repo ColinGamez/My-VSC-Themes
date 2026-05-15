@@ -1,6 +1,6 @@
 # Colin's VS Code Themes
 
-A small VS Code theme hub with orange, neon, matcha, and peach palettes.
+A small VS Code theme hub with colorful dark and light palettes.
 
 ## Themes
 
@@ -9,6 +9,12 @@ A small VS Code theme hub with orange, neon, matcha, and peach palettes.
 - **Neon Arcade**: electric blue, hot pink, and golden syntax on a midnight UI.
 - **Matcha Grove**: deep green workbench surfaces with mint and tea-gold syntax.
 - **Peach Soda**: a soft light theme with peach UI, coral accents, and readable warm text.
+- **Blue Raspberry**: cold blue surfaces with raspberry keywords and candy-bright accents.
+- **Cherry Cola**: dark cola surfaces, cherry highlights, and creamy syntax.
+- **Lavender Static**: violet workbench tones with cyan signal colors and pink type accents.
+- **Ocean Byte**: teal-black surfaces with seafoam, blue, and warm marker colors.
+- **Graphite Pop**: neutral graphite UI with bright cyan, pink, yellow, and green syntax.
+- **Honey Terminal**: a warm light theme with honey-gold UI and readable brown text.
 
 After changing theme sources, run `npm run build` to regenerate derived themes.
 
