@@ -1,0 +1,19 @@
+{
+  "name": "all-orange-theme",
+  "displayName": "All Orange Theme",
+  "enabled": true,
+  "palette": {
+    "background": "#160804",
+    "foreground": "#ffd9a8",
+    "accent": "#ff8f24"
+  },
+  "demoLanguages": [
+    "javascript",
+    "typescriptreact",
+    "vue",
+    "python",
+    "ruby",
+    "html",
+    "css"
+  ]
+}

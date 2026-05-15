@@ -1,0 +1,37 @@
+{
+  "name": "all-orange-theme",
+  "displayName": "All Orange Theme",
+  "description": "A VS Code theme built entirely from warm orange tones.",
+  "version": "0.0.1",
+  "publisher": "local",
+  "license": "MIT",
+  "scripts": {
+    "build:no-italics": "node scripts/build-no-italics.mjs"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark theme",
+    "orange",
+    "color theme"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "All Orange",
+        "uiTheme": "vs-dark",
+        "path": "./themes/all-orange-color-theme.json"
+      },
+      {
+        "label": "All Orange No Italics",
+        "uiTheme": "vs-dark",
+        "path": "./themes/all-orange-no-italics-color-theme.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+.sixth/**
+.vscode/**
+demos/**
+scripts/**
+*.vsix

@@ -1,0 +1,18 @@
+:root {
+  --orange-ember: #ff7a18;
+  --orange-glow: #ffbc42;
+  color-scheme: dark;
+}
+
+.card[data-state="active"] {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 36rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid color-mix(in srgb, var(--orange-ember), black 35%);
+  background: linear-gradient(135deg, #2a1007, #160804);
+}
+
+.card:hover {
+  box-shadow: 0 12px 32px rgb(255 122 24 / 0.22);
+}
