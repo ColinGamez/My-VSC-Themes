@@ -140,6 +140,8 @@ MVP:
 
 A fast command hub for projects, scripts, links, and tools.
 
+Status: Alpha shipped in Colin's VS Code Themes v1.10.0.
+
 Core idea:
 
 - One slick launcher for the user's actual workflow.
@@ -211,7 +213,7 @@ Why this order: Theme Reactor uses the theme hub we already have, Project Comman
 
 ## First Milestones
 
-Ship Theme Reactor, Project Command Center, README Studio, and Snippet Forge as the first suite tools.
+Ship Theme Reactor, Project Command Center, README Studio, Snippet Forge, and Launch Pad as the first suite tools.
 
 Theme Reactor status: Alpha shipped in Colin's VS Code Themes v1.6.0.
 
@@ -254,3 +256,12 @@ Snippet Forge scope:
 - Detect repeated identifiers and offer tab-stop placeholders.
 - Preview generated snippet JSON.
 - Save to `.vscode/colins-snippets.code-snippets` or copy JSON.
+
+Launch Pad status: Alpha shipped in Colin's VS Code Themes v1.10.0.
+
+Launch Pad scope:
+
+- Searchable webview launcher for scripts, workspace files, repository links, terminal actions, and suite commands.
+- Per-workspace pinned actions.
+- Custom links and terminal commands stored in `.vscode/colins-launch-pad.json`.
+- Entry points from the Command Palette and Project Command Center.

@@ -2,7 +2,7 @@
 
 ![Colin's VS Code Themes banner](assets/brand-banner.png)
 
-A colorful VS Code theme hub built around fast mood switching: orange-first classics, seasonal palettes, holiday themes, gaming-inspired looks, file icons, settings presets, Theme Reactor automation, Project Command Center, README Studio, Snippet Forge, and theme-switching commands. It started with **All Orange** and grew into a 32-theme pack.
+A colorful VS Code theme hub built around fast mood switching: orange-first classics, seasonal palettes, holiday themes, gaming-inspired looks, file icons, settings presets, Theme Reactor automation, Project Command Center, Launch Pad, README Studio, Snippet Forge, and theme-switching commands. It started with **All Orange** and grew into a 32-theme pack.
 
 Marketplace: https://marketplace.visualstudio.com/items?itemName=ColinGamez.my-vsc-themes
 
@@ -154,12 +154,27 @@ It can:
 
 Select code, right-click, and choose **Forge Snippet From Selection**, or run **Colin's Suite: Forge Snippet From Selection** from the Command Palette.
 
+## Launch Pad
+
+Launch Pad is the fifth tool in **Colin's Code Suite**. It opens a workspace-aware launcher for project scripts, files, links, terminal commands, and suite tools.
+
+It can:
+
+- Detect package scripts and run them from a searchable webview.
+- Open workspace files, the detected repository, terminals, README Studio, Snippet Forge, Command Center, and Theme Reactor.
+- Pin favorite actions per workspace.
+- Save custom links and terminal commands in `.vscode/colins-launch-pad.json`.
+- Refresh live when the Launch Pad config file changes.
+
+Run **Colin's Suite: Open Launch Pad** from the Command Palette, or open it from Project Command Center.
+
 ## Command Palette Helpers
 
 After installing the extension, run these from the Command Palette:
 
 | Command | What it does |
 | --- | --- |
+| **Colin's Suite: Open Launch Pad** | Opens a searchable workspace launcher for scripts, files, links, terminal commands, and suite tools. |
 | **Colin's Suite: Forge Snippet From Selection** | Converts selected code into a reusable workspace snippet with optional placeholders. |
 | **Colin's Suite: Open Snippet Forge Workspace Snippets** | Opens `.vscode/colins-snippets.code-snippets`. |
 | **Colin's Suite: Open README Studio** | Opens README Studio for generating, previewing, copying, and saving a project README. |
@@ -229,7 +244,7 @@ The manual **Release** workflow can create a GitHub release and optionally publi
 To capture fresh local VS Code screenshots:
 
 ```powershell
-.\scripts\capture-vscode-screenshots.ps1 -VsixPath .\my-vsc-themes-1.9.1.vsix
+.\scripts\capture-vscode-screenshots.ps1 -VsixPath .\my-vsc-themes-1.10.0.vsix
 ```
 
 ## Inspect Scopes

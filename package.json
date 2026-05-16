@@ -1,8 +1,8 @@
 {
   "name": "my-vsc-themes",
   "displayName": "Colin's VS Code Themes",
-  "description": "A colorful VS Code theme hub with themes, file icons, presets, Theme Reactor, Command Center, README Studio, and Snippet Forge.",
-  "version": "1.9.1",
+  "description": "A colorful VS Code theme hub with themes, file icons, presets, Theme Reactor, Command Center, Launch Pad, README Studio, and Snippet Forge.",
+  "version": "1.10.0",
   "publisher": "ColinGamez",
   "license": "MIT",
   "main": "./extension.js",
@@ -27,6 +27,7 @@
     "onCommand:my-vsc-themes.configureReactorFavorites",
     "onCommand:my-vsc-themes.setReactorWorkspaceTheme",
     "onView:my-vsc-themes.commandCenter",
+    "onCommand:my-vsc-themes.launchPad.open",
     "onCommand:my-vsc-themes.commandCenter.open",
     "onCommand:my-vsc-themes.commandCenter.refresh",
     "onCommand:my-vsc-themes.commandCenter.runBestScript",
@@ -92,6 +93,9 @@
     "project dashboard",
     "command center",
     "developer tools",
+    "launch pad",
+    "workspace launcher",
+    "productivity",
     "readme",
     "documentation",
     "snippets",
@@ -99,6 +103,11 @@
   ],
   "contributes": {
     "commands": [
+      {
+        "command": "my-vsc-themes.launchPad.open",
+        "title": "Open Launch Pad",
+        "category": "Colin's Suite"
+      },
       {
         "command": "my-vsc-themes.snippetForge.createFromSelection",
         "title": "Forge Snippet From Selection",

@@ -118,6 +118,14 @@ function commandCenterRootItems(snapshot) {
 
 function commandCenterQuickActions(snapshot) {
   const items = [
+    new CommandCenterNode("Open Launch Pad", {
+      description: "Workspace launcher",
+      icon: "rocket",
+      command: {
+        command: "my-vsc-themes.launchPad.open",
+        title: "Open Launch Pad"
+      }
+    }),
     new CommandCenterNode("Open README Studio", {
       description: "Build project docs",
       icon: "preview",

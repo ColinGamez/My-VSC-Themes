@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.10.0
+
+- Added Launch Pad as the fifth Colin's Code Suite tool.
+- Added a searchable workspace webview for package scripts, files, repository links, terminal actions, and suite commands.
+- Added per-workspace pins and custom links/terminal commands saved in `.vscode/colins-launch-pad.json`.
+- Added Launch Pad entry points from the Command Palette and Project Command Center.
+
 ## 1.9.1
 
 - Split the extension internals into focused modules for Command Center, README Studio, Snippet Forge, Theme Reactor, theme data, and shared project utilities.
