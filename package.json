@@ -2,7 +2,7 @@
   "name": "my-vsc-themes",
   "displayName": "Colin's VS Code Themes",
   "description": "A colorful VS Code theme hub with themes, file icons, presets, Theme Reactor, Command Center, README Studio, and Snippet Forge.",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "publisher": "ColinGamez",
   "license": "MIT",
   "main": "./extension.js",

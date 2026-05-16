@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.1
+
+- Split the extension internals into focused modules for Command Center, README Studio, Snippet Forge, Theme Reactor, theme data, and shared project utilities.
+- Slimmed the extension entry point down to registration only so the suite is easier to maintain and expand.
+- Kept the public command surface and theme behavior unchanged while polishing the codebase for future tools.
+
 ## 1.9.0
 
 - Added Snippet Forge for turning selected editor code into reusable VS Code snippets.
