@@ -73,7 +73,7 @@ The extension also includes **Colin's Color Icons**, a matching PNG-based file i
 
 To enable it, run **Preferences: File Icon Theme** and choose **Colin's Color Icons**.
 
-## Theme Reactor Alpha
+## Theme Reactor
 
 Theme Reactor is the first tool in **Colin's Code Suite**. It can switch themes by time of day, season, holiday month, random favorite, or workspace.
 
@@ -111,7 +111,7 @@ Useful settings:
 }
 ```
 
-## Project Command Center Alpha
+## Project Command Center
 
 Project Command Center is the second tool in **Colin's Code Suite**. It adds a **Colin's Suite** activity bar view that detects the current workspace and gives you a quick project dashboard.
 
@@ -126,7 +126,7 @@ It can show:
 
 Open it from the activity bar with **Colin's Suite**, or run **Colin's Suite: Open Project Command Center** from the Command Palette.
 
-## README Studio Alpha
+## README Studio
 
 README Studio is the third tool in **Colin's Code Suite**. It opens a full editor-style webview for building a polished `README.md` without leaving VS Code.
 
@@ -213,7 +213,7 @@ The manual **Release** workflow can create a GitHub release and optionally publi
 To capture fresh local VS Code screenshots:
 
 ```powershell
-.\scripts\capture-vscode-screenshots.ps1 -VsixPath .\my-vsc-themes-1.8.0.vsix
+.\scripts\capture-vscode-screenshots.ps1 -VsixPath .\my-vsc-themes-1.8.1.vsix
 ```
 
 ## Inspect Scopes

@@ -2,7 +2,7 @@
   "name": "my-vsc-themes",
   "displayName": "Colin's VS Code Themes",
   "description": "A colorful VS Code theme hub with themes, file icons, presets, Theme Reactor, Command Center, and README Studio.",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "publisher": "ColinGamez",
   "license": "MIT",
   "main": "./extension.js",
@@ -88,7 +88,9 @@
     "theme switcher",
     "project dashboard",
     "command center",
-    "developer tools"
+    "developer tools",
+    "readme",
+    "documentation"
   ],
   "contributes": {
     "commands": [
@@ -288,7 +290,7 @@
         "myVscThemes.reactor.workspaceTheme": {
           "type": "string",
           "default": "",
-        "description": "Workspace-specific Theme Reactor override. Leave empty to use the normal Theme Reactor mode."
+          "description": "Workspace-specific Theme Reactor override. Leave empty to use the normal Theme Reactor mode."
         }
       }
     },

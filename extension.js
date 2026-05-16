@@ -44,6 +44,13 @@ const DEFAULT_REACTOR_FAVORITES = [
 const REACTOR_INTERVAL_MS = 5 * 60 * 1000;
 const SCRIPT_PRIORITY = ["dev", "start", "watch", "serve", "preview", "build", "test", "lint", "format", "package"];
 const README_STUDIO_VIEW_TYPE = "my-vsc-themes.readmeStudio";
+let readmeStudioPanel;
+
+function runExtensionTask(task, label) {
+  Promise.resolve(task).catch((error) => {
+    console.error(`[Colin's VS Code Themes] ${label} failed`, error);
+  });
+}
 
 class CommandCenterNode extends vscode.TreeItem {
   constructor(label, options = {}) {
@@ -864,6 +871,13 @@ async function saveReadmeFromStudio(markdown) {
     return;
   }
 
+  const normalizedMarkdown = String(markdown ?? "").trimEnd();
+
+  if (!normalizedMarkdown) {
+    vscode.window.showWarningMessage("README Studio cannot save an empty README.");
+    return;
+  }
+
   const filePath = path.join(snapshot.root, "README.md");
   const exists = fs.existsSync(filePath);
   const action = await vscode.window.showWarningMessage(
@@ -876,7 +890,7 @@ async function saveReadmeFromStudio(markdown) {
     return;
   }
 
-  await vscode.workspace.fs.writeFile(vscode.Uri.file(filePath), Buffer.from(markdown, "utf8"));
+  await vscode.workspace.fs.writeFile(vscode.Uri.file(filePath), Buffer.from(`${normalizedMarkdown}\n`, "utf8"));
   vscode.window.showInformationMessage("README Studio: README.md saved.");
 }
 
@@ -885,6 +899,12 @@ async function openReadmeStudio() {
 
   if (!state.hasWorkspace) {
     vscode.window.showWarningMessage("Open a folder first, then launch README Studio.");
+    return;
+  }
+
+  if (readmeStudioPanel) {
+    readmeStudioPanel.reveal(vscode.ViewColumn.One);
+    readmeStudioPanel.webview.postMessage({ type: "context", state });
     return;
   }
 
@@ -897,6 +917,10 @@ async function openReadmeStudio() {
       retainContextWhenHidden: true
     }
   );
+  readmeStudioPanel = panel;
+  panel.onDidDispose(() => {
+    readmeStudioPanel = undefined;
+  });
   const token = nonce();
   panel.webview.html = readmeStudioHtml(panel.webview, token, state);
 
@@ -936,7 +960,7 @@ function readmeStudioHtml(webview, token, state) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src ${webview.cspSource} 'unsafe-inline'; script-src 'nonce-${token}';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src ${webview.cspSource} https: data:; style-src ${webview.cspSource} 'unsafe-inline'; script-src 'nonce-${token}';">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>README Studio</title>
   <style>
@@ -1187,6 +1211,10 @@ function readmeStudioHtml(webview, token, state) {
       line-height: 1.58;
     }
 
+    .preview strong {
+      color: #fff6e8;
+    }
+
     .preview code {
       color: #ffd166;
       background: #120503;
@@ -1201,6 +1229,43 @@ function readmeStudioHtml(webview, token, state) {
       background: #0e0302;
       border: 1px solid rgba(255, 138, 42, 0.2);
       border-radius: 6px;
+    }
+
+    .preview img {
+      max-width: 100%;
+      height: auto;
+      vertical-align: middle;
+      border-radius: 6px;
+    }
+
+    .preview table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      overflow: hidden;
+      border: 1px solid rgba(255, 138, 42, 0.24);
+      border-radius: 6px;
+    }
+
+    .preview th,
+    .preview td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(255, 138, 42, 0.16);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .preview th {
+      color: #ffd166;
+      background: #170805;
+    }
+
+    .preview blockquote {
+      margin: 14px 0;
+      padding: 8px 12px;
+      border-left: 3px solid var(--accent);
+      color: var(--muted);
+      background: #180804;
     }
 
     .preview a {
@@ -1333,6 +1398,32 @@ function readmeStudioHtml(webview, token, state) {
         .filter(Boolean);
     }
 
+    function safeUrl(value) {
+      const url = String(value || "").trim();
+
+      if (/^(https?:|data:image\\/|\\.\\/|\\.\\.\\/|\\/|assets\\/|docs\\/|[A-Za-z0-9_./#?=&%-]+$)/.test(url)) {
+        return escapeHtml(url);
+      }
+
+      return "#";
+    }
+
+    function inlineMarkdown(value) {
+      let html = escapeHtml(value);
+      html = html.replace(/\\[!\\[([^\\]]*)\\]\\(([^)]+)\\)\\]\\(([^)]+)\\)/g, (_match, alt, src, href) => {
+        return '<a href="' + safeUrl(href) + '"><img alt="' + alt + '" src="' + safeUrl(src) + '"></a>';
+      });
+      html = html.replace(/!\\[([^\\]]*)\\]\\(([^)]+)\\)/g, (_match, alt, src) => {
+        return '<img alt="' + alt + '" src="' + safeUrl(src) + '">';
+      });
+      html = html.replace(/\\[([^\\]]+)\\]\\(([^)]+)\\)/g, (_match, text, href) => {
+        return '<a href="' + safeUrl(href) + '">' + text + '</a>';
+      });
+      html = html.replace(/\`([^\`]+)\`/g, '<code>$1</code>');
+      html = html.replace(/\\*\\*([^*]+)\\*\\*/g, '<strong>$1</strong>');
+      return html;
+    }
+
     function badgeLines() {
       const badges = [];
 
@@ -1426,26 +1517,34 @@ function readmeStudioHtml(webview, token, state) {
     }
 
     function markdownToHtml(markdown) {
-      const escaped = escapeHtml(markdown);
-      const blocks = escaped.split(/\\n{2,}/).map((block) => {
-        if (block.startsWith("# ")) return "<h1>" + block.slice(2) + "</h1>";
-        if (block.startsWith("## ")) return "<h2>" + block.slice(3) + "</h2>";
-        if (block.startsWith("### ")) return "<h3>" + block.slice(4) + "</h3>";
+      const blocks = String(markdown || "").split(/\\n{2,}/).map((rawBlock) => {
+        const block = rawBlock.trim();
+        const blockLines = block.split("\\n");
+
+        if (!block) return "";
+        if (block.startsWith("# ")) return "<h1>" + inlineMarkdown(block.slice(2)) + "</h1>";
+        if (block.startsWith("## ")) return "<h2>" + inlineMarkdown(block.slice(3)) + "</h2>";
+        if (block.startsWith("### ")) return "<h3>" + inlineMarkdown(block.slice(4)) + "</h3>";
         if (block.startsWith("\`\`\`")) {
-          return "<pre><code>" + block.replace(/^\`\`\`\\w*\\n?/, "").replace(/\`\`\`$/, "") + "</code></pre>";
+          return "<pre><code>" + escapeHtml(block.replace(/^\`\`\`\\w*\\n?/, "").replace(/\`\`\`$/, "")) + "</code></pre>";
         }
-        if (block.includes("\\n- ")) {
-          const items = block.split("\\n").filter((line) => line.startsWith("- ")).map((line) => "<li>" + line.slice(2) + "</li>");
+        if (blockLines.every((line) => line.startsWith("- "))) {
+          const items = blockLines.map((line) => "<li>" + inlineMarkdown(line.slice(2)) + "</li>");
           return "<ul>" + items.join("") + "</ul>";
         }
         if (block.startsWith("|")) {
-          const rows = block.split("\\n").filter((line) => !/^\\|\\s*-/.test(line)).map((line) => {
-            const cells = line.split("|").slice(1, -1).map((cell) => "<td>" + cell.trim() + "</td>");
+          const rows = blockLines.filter((line) => !/^\\|\\s*-/.test(line)).map((line, index) => {
+            const tag = index === 0 ? "th" : "td";
+            const cells = line.split("|").slice(1, -1).map((cell) => "<" + tag + ">" + inlineMarkdown(cell.trim()) + "</" + tag + ">");
             return "<tr>" + cells.join("") + "</tr>";
           });
           return "<table>" + rows.join("") + "</table>";
         }
-        return "<p>" + block.replace(/\\n/g, "<br>") + "</p>";
+        if (block.startsWith("> ")) {
+          return "<blockquote>" + inlineMarkdown(block.replace(/^>\\s?/gm, "")) + "</blockquote>";
+        }
+
+        return "<p>" + inlineMarkdown(block).replace(/\\n/g, "<br>") + "</p>";
       });
 
       return blocks.join("");
@@ -1917,14 +2016,14 @@ async function applyConfiguredStartupTheme() {
 
 function watchThemeReactor(context) {
   const timer = setInterval(() => {
-    applyThemeReactorIfEnabled({ silent: true });
+    runExtensionTask(applyThemeReactorIfEnabled({ silent: true }), "Theme Reactor interval update");
   }, REACTOR_INTERVAL_MS);
 
   context.subscriptions.push({ dispose: () => clearInterval(timer) });
   context.subscriptions.push(
     vscode.workspace.onDidChangeConfiguration((event) => {
       if (event.affectsConfiguration("myVscThemes.reactor")) {
-        applyThemeReactorIfEnabled({ silent: true });
+        runExtensionTask(applyThemeReactorIfEnabled({ silent: true }), "Theme Reactor configuration update");
       }
     })
   );
@@ -1984,7 +2083,7 @@ function activate(context) {
   watchThemeReactor(context);
 
   setTimeout(() => {
-    applyConfiguredStartupTheme();
+    runExtensionTask(applyConfiguredStartupTheme(), "startup theme apply");
   }, 1200);
 }
 

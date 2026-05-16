@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.8.1
+
+- Polished README Studio preview rendering for badges, images, links, tables, inline code, strong text, and blockquotes.
+- Kept README Studio to a single reusable panel and added an empty README save guard.
+- Hardened Theme Reactor background updates so startup or timer errors are logged instead of surfacing as unhandled failures.
+- Tightened Marketplace metadata and README wording for the suite tools.
+
 ## 1.8.0
 
 - Added README Studio alpha as a full VS Code webview for generating and previewing project README files.
