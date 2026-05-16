@@ -10,6 +10,8 @@ The plan: build each tool as a standalone extension, then ship one extension pac
 
 Mission control for any workspace.
 
+Status: Alpha is landing inside Colin's VS Code Themes first as the second suite tool.
+
 Core idea:
 
 - Detect package scripts, Git status, README, tests, build commands, and common project files.
@@ -31,6 +33,8 @@ MVP:
 ### 2. Colin's Theme Reactor
 
 Smart theme switching for moods, seasons, and coding sessions.
+
+Status: Alpha shipped in Colin's VS Code Themes v1.6.0.
 
 Core idea:
 
@@ -201,13 +205,13 @@ Why this order: Theme Reactor uses the theme hub we already have, Project Comman
 - Keep telemetry off unless there is a clear reason and clear opt-in.
 - Make every extension useful alone, then better as part of the suite.
 
-## First Milestone
+## First Milestones
 
-Ship Theme Reactor as the first suite tool.
+Ship Theme Reactor and Project Command Center as the first suite tools.
 
-Status: Alpha is landing inside Colin's VS Code Themes first so people can use the core idea before it becomes a standalone suite extension.
+Theme Reactor status: Alpha shipped in Colin's VS Code Themes v1.6.0.
 
-Milestone scope:
+Theme Reactor scope:
 
 - Alpha inside the current theme extension.
 - Theme schedule settings.
@@ -215,3 +219,14 @@ Milestone scope:
 - First-class support for Colin's VS Code Themes.
 - Standalone extension scaffold after the alpha feels right.
 - README, icon, changelog, and Marketplace polish.
+
+Project Command Center status: Alpha is landing inside Colin's VS Code Themes first.
+
+Project Command Center scope:
+
+- Colin's Suite activity bar view.
+- Workspace/project type detection.
+- npm/package script dashboard.
+- Git branch, status, and remote link.
+- Project health checks for README, `.gitignore`, license, CI, build, test, and lint basics.
+- Quick actions for terminal, best script, repository, starter files, and Theme Reactor.

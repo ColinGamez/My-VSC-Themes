@@ -2,7 +2,7 @@
 
 ![Colin's VS Code Themes banner](assets/brand-banner.png)
 
-A colorful VS Code theme hub built around fast mood switching: orange-first classics, seasonal palettes, holiday themes, gaming-inspired looks, file icons, settings presets, Theme Reactor automation, and theme-switching commands. It started with **All Orange** and grew into a 32-theme pack.
+A colorful VS Code theme hub built around fast mood switching: orange-first classics, seasonal palettes, holiday themes, gaming-inspired looks, file icons, settings presets, Theme Reactor automation, Project Command Center, and theme-switching commands. It started with **All Orange** and grew into a 32-theme pack.
 
 Marketplace: https://marketplace.visualstudio.com/items?itemName=ColinGamez.my-vsc-themes
 
@@ -111,12 +111,32 @@ Useful settings:
 }
 ```
 
+## Project Command Center Alpha
+
+Project Command Center is the second tool in **Colin's Code Suite**. It adds a **Colin's Suite** activity bar view that detects the current workspace and gives you a quick project dashboard.
+
+It can show:
+
+- Project type and workspace name.
+- Quick actions for scripts, terminal, README, repository, and missing starter files.
+- Package scripts with one-click terminal launch.
+- Git branch, working tree status, and remote link.
+- Project health checks for README, `.gitignore`, license, CI, build, test, and lint basics.
+- Theme Reactor shortcuts.
+
+Open it from the activity bar with **Colin's Suite**, or run **Colin's Suite: Open Project Command Center** from the Command Palette.
+
 ## Command Palette Helpers
 
 After installing the extension, run these from the Command Palette:
 
 | Command | What it does |
 | --- | --- |
+| **Colin's Suite: Open Project Command Center** | Opens the Project Command Center sidebar. |
+| **Colin's Suite: Run Best Project Script** | Runs `dev`, `start`, `serve`, `preview`, `build`, or `test`, whichever is available first. |
+| **Colin's Suite: Open Project Terminal** | Opens a terminal in the current workspace root. |
+| **Colin's Suite: Open Project Repository** | Opens the detected repository remote in the browser. |
+| **Colin's Suite: Create Missing Project Basics** | Offers to create a starter `README.md` and `.gitignore` if missing. |
 | **Colin's Themes: Enable Theme Reactor** | Turns on automatic Theme Reactor switching. |
 | **Colin's Themes: Disable Theme Reactor** | Turns off automatic Theme Reactor switching. |
 | **Colin's Themes: Apply Theme Reactor Now** | Applies the current Theme Reactor pick immediately. |
@@ -178,7 +198,7 @@ The manual **Release** workflow can create a GitHub release and optionally publi
 To capture fresh local VS Code screenshots:
 
 ```powershell
-.\scripts\capture-vscode-screenshots.ps1 -VsixPath .\my-vsc-themes-1.6.0.vsix
+.\scripts\capture-vscode-screenshots.ps1 -VsixPath .\my-vsc-themes-1.7.0.vsix
 ```
 
 ## Inspect Scopes

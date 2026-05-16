@@ -1,8 +1,8 @@
 {
   "name": "my-vsc-themes",
   "displayName": "Colin's VS Code Themes",
-  "description": "A colorful VS Code theme hub with themes, file icons, presets, automation, and theme-switching commands.",
-  "version": "1.6.0",
+  "description": "A colorful VS Code theme hub with themes, file icons, presets, automation, Theme Reactor, and Project Command Center.",
+  "version": "1.7.0",
   "publisher": "ColinGamez",
   "license": "MIT",
   "main": "./extension.js",
@@ -25,7 +25,14 @@
     "onCommand:my-vsc-themes.pickReactorFavorite",
     "onCommand:my-vsc-themes.randomReactorFavorite",
     "onCommand:my-vsc-themes.configureReactorFavorites",
-    "onCommand:my-vsc-themes.setReactorWorkspaceTheme"
+    "onCommand:my-vsc-themes.setReactorWorkspaceTheme",
+    "onView:my-vsc-themes.commandCenter",
+    "onCommand:my-vsc-themes.commandCenter.open",
+    "onCommand:my-vsc-themes.commandCenter.refresh",
+    "onCommand:my-vsc-themes.commandCenter.runBestScript",
+    "onCommand:my-vsc-themes.commandCenter.openTerminal",
+    "onCommand:my-vsc-themes.commandCenter.openRepository",
+    "onCommand:my-vsc-themes.commandCenter.createMissingBasics"
   ],
   "extensionKind": [
     "ui"
@@ -59,7 +66,8 @@
     "vscode": "^1.90.0"
   },
   "categories": [
-    "Themes"
+    "Themes",
+    "Other"
   ],
   "keywords": [
     "theme",
@@ -76,10 +84,43 @@
     "cyberpunk",
     "file icons",
     "auto theme",
-    "theme switcher"
+    "theme switcher",
+    "project dashboard",
+    "command center",
+    "developer tools"
   ],
   "contributes": {
     "commands": [
+      {
+        "command": "my-vsc-themes.commandCenter.open",
+        "title": "Open Project Command Center",
+        "category": "Colin's Suite"
+      },
+      {
+        "command": "my-vsc-themes.commandCenter.refresh",
+        "title": "Refresh Project Command Center",
+        "category": "Colin's Suite"
+      },
+      {
+        "command": "my-vsc-themes.commandCenter.runBestScript",
+        "title": "Run Best Project Script",
+        "category": "Colin's Suite"
+      },
+      {
+        "command": "my-vsc-themes.commandCenter.openTerminal",
+        "title": "Open Project Terminal",
+        "category": "Colin's Suite"
+      },
+      {
+        "command": "my-vsc-themes.commandCenter.openRepository",
+        "title": "Open Project Repository",
+        "category": "Colin's Suite"
+      },
+      {
+        "command": "my-vsc-themes.commandCenter.createMissingBasics",
+        "title": "Create Missing Project Basics",
+        "category": "Colin's Suite"
+      },
       {
         "command": "my-vsc-themes.applySeasonalTheme",
         "title": "Apply Current Seasonal Theme",
@@ -241,9 +282,35 @@
         "myVscThemes.reactor.workspaceTheme": {
           "type": "string",
           "default": "",
-          "description": "Workspace-specific Theme Reactor override. Leave empty to use the normal Theme Reactor mode."
+        "description": "Workspace-specific Theme Reactor override. Leave empty to use the normal Theme Reactor mode."
         }
       }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "colins-code-suite",
+          "title": "Colin's Suite",
+          "icon": "assets/logo-mark.png"
+        }
+      ]
+    },
+    "views": {
+      "colins-code-suite": [
+        {
+          "id": "my-vsc-themes.commandCenter",
+          "name": "Command Center"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "my-vsc-themes.commandCenter.refresh",
+          "when": "view == my-vsc-themes.commandCenter",
+          "group": "navigation"
+        }
+      ]
     },
     "iconThemes": [
       {

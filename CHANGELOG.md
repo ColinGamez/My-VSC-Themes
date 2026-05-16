@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.7.0
+
+- Added Project Command Center alpha in a new Colin's Suite activity bar view.
+- Added workspace detection for project type, package scripts, Git branch/status, repository links, and project health basics.
+- Added one-click actions for best script, terminal, README, repository, missing starter files, and Theme Reactor shortcuts.
+- Added Command Palette commands for opening and refreshing Command Center, running project scripts, opening the terminal/repository, and creating missing basics.
+
 ## 1.6.0
 
 - Added Theme Reactor alpha with hybrid, time-of-day, seasonal, holiday, random favorite, and workspace theme switching.
