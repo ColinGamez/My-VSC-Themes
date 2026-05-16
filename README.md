@@ -2,7 +2,7 @@
 
 ![Colin's VS Code Themes banner](assets/brand-banner.png)
 
-A colorful VS Code theme hub built around fast mood switching: orange-first classics, seasonal palettes, holiday themes, gaming-inspired looks, file icons, settings presets, Theme Reactor automation, Project Command Center, and theme-switching commands. It started with **All Orange** and grew into a 32-theme pack.
+A colorful VS Code theme hub built around fast mood switching: orange-first classics, seasonal palettes, holiday themes, gaming-inspired looks, file icons, settings presets, Theme Reactor automation, Project Command Center, README Studio, and theme-switching commands. It started with **All Orange** and grew into a 32-theme pack.
 
 Marketplace: https://marketplace.visualstudio.com/items?itemName=ColinGamez.my-vsc-themes
 
@@ -126,12 +126,27 @@ It can show:
 
 Open it from the activity bar with **Colin's Suite**, or run **Colin's Suite: Open Project Command Center** from the Command Palette.
 
+## README Studio Alpha
+
+README Studio is the third tool in **Colin's Code Suite**. It opens a full editor-style webview for building a polished `README.md` without leaving VS Code.
+
+It can:
+
+- Detect the current project name, type, scripts, repository, Marketplace extension ID, and health score.
+- Generate a structured README with badges, description, features, install steps, usage, commands, support links, and roadmap.
+- Preview the README as rendered Markdown while you edit.
+- Reuse an existing README draft.
+- Copy the generated Markdown or save it to `README.md`.
+
+Run **Colin's Suite: Open README Studio** from the Command Palette, or open it from Project Command Center.
+
 ## Command Palette Helpers
 
 After installing the extension, run these from the Command Palette:
 
 | Command | What it does |
 | --- | --- |
+| **Colin's Suite: Open README Studio** | Opens README Studio for generating, previewing, copying, and saving a project README. |
 | **Colin's Suite: Open Project Command Center** | Opens the Project Command Center sidebar. |
 | **Colin's Suite: Run Best Project Script** | Runs `dev`, `start`, `serve`, `preview`, `build`, or `test`, whichever is available first. |
 | **Colin's Suite: Open Project Terminal** | Opens a terminal in the current workspace root. |
@@ -198,7 +213,7 @@ The manual **Release** workflow can create a GitHub release and optionally publi
 To capture fresh local VS Code screenshots:
 
 ```powershell
-.\scripts\capture-vscode-screenshots.ps1 -VsixPath .\my-vsc-themes-1.7.0.vsix
+.\scripts\capture-vscode-screenshots.ps1 -VsixPath .\my-vsc-themes-1.8.0.vsix
 ```
 
 ## Inspect Scopes

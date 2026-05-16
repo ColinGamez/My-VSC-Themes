@@ -56,6 +56,8 @@ MVP:
 
 A visual README builder inside VS Code.
 
+Status: Alpha is landing inside Colin's VS Code Themes as the third suite tool.
+
 Core idea:
 
 - Help people make GitHub and Marketplace pages look legit without fighting Markdown.
@@ -207,7 +209,7 @@ Why this order: Theme Reactor uses the theme hub we already have, Project Comman
 
 ## First Milestones
 
-Ship Theme Reactor and Project Command Center as the first suite tools.
+Ship Theme Reactor, Project Command Center, and README Studio as the first suite tools.
 
 Theme Reactor status: Alpha shipped in Colin's VS Code Themes v1.6.0.
 
@@ -230,3 +232,13 @@ Project Command Center scope:
 - Git branch, status, and remote link.
 - Project health checks for README, `.gitignore`, license, CI, build, test, and lint basics.
 - Quick actions for terminal, best script, repository, starter files, and Theme Reactor.
+
+README Studio status: Alpha is landing inside Colin's VS Code Themes first.
+
+README Studio scope:
+
+- Webview builder for project README files.
+- Project-aware badges, install command, usage command, feature seeds, command/script table, support links, and roadmap.
+- Live Markdown preview.
+- Reuse existing README content.
+- Copy generated Markdown or save to `README.md`.

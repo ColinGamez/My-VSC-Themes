@@ -1,8 +1,8 @@
 {
   "name": "my-vsc-themes",
   "displayName": "Colin's VS Code Themes",
-  "description": "A colorful VS Code theme hub with themes, file icons, presets, automation, Theme Reactor, and Project Command Center.",
-  "version": "1.7.0",
+  "description": "A colorful VS Code theme hub with themes, file icons, presets, Theme Reactor, Command Center, and README Studio.",
+  "version": "1.8.0",
   "publisher": "ColinGamez",
   "license": "MIT",
   "main": "./extension.js",
@@ -32,7 +32,8 @@
     "onCommand:my-vsc-themes.commandCenter.runBestScript",
     "onCommand:my-vsc-themes.commandCenter.openTerminal",
     "onCommand:my-vsc-themes.commandCenter.openRepository",
-    "onCommand:my-vsc-themes.commandCenter.createMissingBasics"
+    "onCommand:my-vsc-themes.commandCenter.createMissingBasics",
+    "onCommand:my-vsc-themes.readmeStudio.open"
   ],
   "extensionKind": [
     "ui"
@@ -91,6 +92,11 @@
   ],
   "contributes": {
     "commands": [
+      {
+        "command": "my-vsc-themes.readmeStudio.open",
+        "title": "Open README Studio",
+        "category": "Colin's Suite"
+      },
       {
         "command": "my-vsc-themes.commandCenter.open",
         "title": "Open Project Command Center",

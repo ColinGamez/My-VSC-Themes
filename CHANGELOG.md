@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.8.0
+
+- Added README Studio alpha as a full VS Code webview for generating and previewing project README files.
+- Added README Studio project detection for package scripts, repository links, Marketplace extension badges, install commands, usage commands, and project health.
+- Added actions to reuse an existing README, copy generated Markdown, open README.md, and save the generated README.
+- Added README Studio entry points from the Command Palette and Project Command Center.
+
 ## 1.7.0
 
 - Added Project Command Center alpha in a new Colin's Suite activity bar view.
