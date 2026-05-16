@@ -79,6 +79,8 @@ MVP:
 
 Turn selected code into reusable snippets.
 
+Status: Alpha is landing inside Colin's VS Code Themes as the fourth suite tool.
+
 Core idea:
 
 - Highlight code, run a command, and convert it into a VS Code snippet with placeholders.
@@ -209,7 +211,7 @@ Why this order: Theme Reactor uses the theme hub we already have, Project Comman
 
 ## First Milestones
 
-Ship Theme Reactor, Project Command Center, and README Studio as the first suite tools.
+Ship Theme Reactor, Project Command Center, README Studio, and Snippet Forge as the first suite tools.
 
 Theme Reactor status: Alpha shipped in Colin's VS Code Themes v1.6.0.
 
@@ -242,3 +244,13 @@ README Studio scope:
 - Live Markdown preview.
 - Reuse existing README content.
 - Copy generated Markdown or save to `README.md`.
+
+Snippet Forge status: Alpha is landing inside Colin's VS Code Themes first.
+
+Snippet Forge scope:
+
+- Create snippets from selected editor code.
+- Suggest prefix, description, language scope, and snippet name.
+- Detect repeated identifiers and offer tab-stop placeholders.
+- Preview generated snippet JSON.
+- Save to `.vscode/colins-snippets.code-snippets` or copy JSON.

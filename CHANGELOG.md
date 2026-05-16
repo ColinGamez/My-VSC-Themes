@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.9.0
+
+- Added Snippet Forge for turning selected editor code into reusable VS Code snippets.
+- Added repeated identifier detection so selected identifiers can become snippet tab-stop placeholders.
+- Added generated snippet preview, copy-to-clipboard, workspace snippet save, and workspace snippet open flows.
+- Added a right-click editor menu entry for forging snippets from selected code.
+
 ## 1.8.1
 
 - Polished README Studio preview rendering for badges, images, links, tables, inline code, strong text, and blockquotes.
